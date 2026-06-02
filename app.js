@@ -82,7 +82,8 @@ function getAllLangs() {
     window.POWERBI_DATA,
     window.EXCEL_DATA,
     window.GIT_DATA,
-    window.CONCEITOS_DATA
+    window.CONCEITOS_DATA,
+    window.ARQUITETURA_DATA
   ].filter(Boolean);
 }
 
