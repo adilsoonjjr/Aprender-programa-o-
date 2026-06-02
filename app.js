@@ -196,21 +196,40 @@ function showLesson(langId, topicId) {
 
   const body = document.getElementById('lesson-body');
   body.innerHTML = `
+    <div class="lesson-step-bar fade-in">
+      <span class="lesson-step active">📖 Lição</span>
+      <span class="lesson-step-arrow">›</span>
+      <span class="lesson-step">🎯 Quiz</span>
+    </div>
+
+    <div class="lesson-section-label">📚 Teoria</div>
     <div class="lesson-theory fade-in">${topic.lesson.theory}</div>
+
+    <div class="lesson-section-label">💻 Exemplos Práticos</div>
     ${topic.lesson.examples.map((ex, i) => `
       <div class="example-block fade-in" style="animation-delay:${i * 0.07}s">
-        <h4>Exemplo ${i + 1}</h4>
-        <h3>${ex.title}</h3>
+        <div class="example-header">
+          <span class="example-num">Exemplo ${i + 1}</span>
+          <span class="example-title">${ex.title}</span>
+        </div>
         <div class="code-box">
+          <div class="code-label">Código</div>
           <pre>${escapeHtml(ex.code)}</pre>
           <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
         </div>
-        <div class="explanation-box">💡 ${ex.explanation}</div>
+        <div class="explanation-box">
+          <div class="explanation-label">📝 O que este código faz:</div>
+          <div class="explanation-text">${ex.explanation}</div>
+        </div>
       </div>
     `).join('')}
-    <button class="btn-start-quiz" onclick="startQuiz()">
-      🎯 Fazer Quiz — +${topic.xp} XP
-    </button>
+
+    <div class="lesson-quiz-cta fade-in">
+      <p>Entendeu o conteúdo? Teste seus conhecimentos!</p>
+      <button class="btn-start-quiz" onclick="startQuiz()">
+        🎯 Fazer Quiz — +${topic.xp} XP
+      </button>
+    </div>
   `;
 
   showScreen('screen-lesson');
@@ -255,7 +274,7 @@ function renderQuestion() {
   if (fill) fill.style.width = pct + '%';
 
   setEl('question-num', `Pergunta ${STATE.quiz.idx + 1} de ${total}`);
-  setEl('question-text', q.question);
+  setEl('question-text', q.question || q.q);
 
   const opts = document.getElementById('options-list');
   opts.innerHTML = '';
@@ -298,7 +317,8 @@ function selectAnswer(idx) {
   const fb = document.getElementById('feedback-box');
   fb.className = `feedback-box show ${isCorrect ? 'correct' : 'wrong'}`;
   fb.innerHTML = `
-    <div class="feedback-header">${isCorrect ? '✅ Correto!' : '❌ Incorreto'}</div>
+    <div class="feedback-header">${isCorrect ? '✅ Correto!' : '❌ Incorreto — a resposta certa era: ' + q.options[correct]}</div>
+    <div class="feedback-explain-label">📝 Por quê?</div>
     <div>${q.explanation}</div>`;
 
   document.getElementById('btn-next').classList.add('show');
