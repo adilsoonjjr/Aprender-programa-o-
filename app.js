@@ -74,7 +74,14 @@ function showScreen(id) {
 
 /* ============ LANGUAGES DATA ============ */
 function getAllLangs() {
-  return [window.PYTHON_DATA, window.ANGULAR_DATA, window.SPRING_DATA].filter(Boolean);
+  return [
+    window.PYTHON_DATA,
+    window.ANGULAR_DATA,
+    window.SPRING_DATA,
+    window.SQL_DATA,
+    window.POWERBI_DATA,
+    window.EXCEL_DATA
+  ].filter(Boolean);
 }
 
 function getLangById(id) {
