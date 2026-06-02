@@ -1,14 +1,18 @@
-const CACHE = 'devquest-v1';
+const CACHE = 'devquest-v2';
+
+// Detecta base path automaticamente (funciona em root e em subdiretório GitHub Pages)
+const BASE = self.registration.scope;
+
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/app.js',
-  '/data/angular.js',
-  '/data/spring.js',
-  '/data/python.js',
-  '/icons/icon.svg',
-  '/manifest.json'
+  BASE,
+  BASE + 'index.html',
+  BASE + 'style.css',
+  BASE + 'app.js',
+  BASE + 'data/angular.js',
+  BASE + 'data/spring.js',
+  BASE + 'data/python.js',
+  BASE + 'icons/icon.svg',
+  BASE + 'manifest.json'
 ];
 
 self.addEventListener('install', e => {
@@ -25,6 +29,6 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => caches.match('/index.html')))
+    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => caches.match(BASE + 'index.html')))
   );
 });
