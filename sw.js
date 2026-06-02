@@ -1,6 +1,5 @@
-const CACHE = 'devquest-v2';
+const CACHE = 'devquest-v3';
 
-// Detecta base path automaticamente (funciona em root e em subdiretório GitHub Pages)
 const BASE = self.registration.scope;
 
 const ASSETS = [
@@ -8,9 +7,12 @@ const ASSETS = [
   BASE + 'index.html',
   BASE + 'style.css',
   BASE + 'app.js',
-  BASE + 'data/angular.js',
-  BASE + 'data/spring.js',
   BASE + 'data/python.js',
+  BASE + 'data/python-mercado.js',
+  BASE + 'data/angular.js',
+  BASE + 'data/angular-mercado.js',
+  BASE + 'data/spring.js',
+  BASE + 'data/spring-mercado.js',
   BASE + 'icons/icon.svg',
   BASE + 'manifest.json'
 ];
