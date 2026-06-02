@@ -1,0 +1,14 @@
+{
+  "name": "DevQuest - Aprenda Programação",
+  "short_name": "DevQuest",
+  "description": "Aprenda Angular, Spring Boot e Python com quizzes e exemplos interativos",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#6c63ff",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "productivity"]
+}
