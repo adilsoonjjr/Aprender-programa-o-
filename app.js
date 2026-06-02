@@ -80,7 +80,9 @@ function getAllLangs() {
     window.SPRING_DATA,
     window.SQL_DATA,
     window.POWERBI_DATA,
-    window.EXCEL_DATA
+    window.EXCEL_DATA,
+    window.GIT_DATA,
+    window.CONCEITOS_DATA
   ].filter(Boolean);
 }
 
