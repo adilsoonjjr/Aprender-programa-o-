@@ -1,4 +1,4 @@
-const CACHE = 'devquest-v7';
+const CACHE = 'devquest-v8';
 
 const BASE = self.registration.scope;
 
@@ -13,17 +13,21 @@ const ASSETS = [
   BASE + 'data/python-dados.js',
   BASE + 'data/python-analise.js',
   BASE + 'data/python-pro.js',
+  BASE + 'data/python-testes.js',
   BASE + 'data/angular.js',
   BASE + 'data/angular-mercado.js',
   BASE + 'data/angular-fullstack.js',
+  BASE + 'data/angular-avancado.js',
   BASE + 'data/spring.js',
   BASE + 'data/spring-mercado.js',
   BASE + 'data/spring-fullstack.js',
+  BASE + 'data/spring-avancado.js',
   BASE + 'data/sql.js',
   BASE + 'data/powerbi.js',
   BASE + 'data/excel.js',
   BASE + 'data/git.js',
   BASE + 'data/conceitos.js',
+  BASE + 'data/arquitetura.js',
   BASE + 'icons/icon.svg',
   BASE + 'manifest.json'
 ];
