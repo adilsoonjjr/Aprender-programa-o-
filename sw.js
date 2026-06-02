@@ -1,4 +1,4 @@
-const CACHE = 'devquest-v5';
+const CACHE = 'devquest-v6';
 
 const BASE = self.registration.scope;
 
@@ -10,6 +10,7 @@ const ASSETS = [
   BASE + 'data/python.js',
   BASE + 'data/python-mercado.js',
   BASE + 'data/python-dados.js',
+  BASE + 'data/python-analise.js',
   BASE + 'data/angular.js',
   BASE + 'data/angular-mercado.js',
   BASE + 'data/angular-fullstack.js',
