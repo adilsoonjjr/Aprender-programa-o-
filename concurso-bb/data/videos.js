@@ -1,7 +1,7 @@
 window.VIDEOS_DATA = {
 
   // ── PORTUGUÊS ──────────────────────────────────────────────────
-  'por-ortografia': [
+  'pt-ortografia': [
     {
       title: 'Ortografia e Acentuação — Concurso BB',
       channel: 'Estratégia Concursos',
@@ -22,7 +22,7 @@ window.VIDEOS_DATA = {
     }
   ],
 
-  'por-gramatica': [
+  'pt-gramatica': [
     {
       title: 'Morfologia — Classes de Palavras para Concurso BB',
       channel: 'Estratégia Concursos',
@@ -43,7 +43,7 @@ window.VIDEOS_DATA = {
     }
   ],
 
-  'por-texto': [
+  'pt-interpretacao': [
     {
       title: 'Interpretação de Texto — Técnicas para Concurso BB',
       channel: 'Estratégia Concursos',
@@ -51,93 +51,42 @@ window.VIDEOS_DATA = {
       desc: 'Como ler, identificar ideia principal e responder sem errar'
     },
     {
+      title: 'Questões de Interpretação Resolvidas — Banco do Brasil',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=questões+interpretação+texto+banco+brasil+resolvidas+comentadas',
+      desc: 'Resolução de provas anteriores do BB com comentários detalhados'
+    },
+    {
+      title: 'Inferência e Ideia Central — Resolução Passo a Passo',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=inferência+ideia+central+texto+concurso+banco+brasil+exercícios',
+      desc: 'Diferença entre literal e inferência — como não cair nas armadilhas'
+    }
+  ],
+
+  'pt-coesao': [
+    {
       title: 'Coesão e Coerência Textual — Concurso Bancário',
       channel: 'Gran Cursos Online',
       url: 'https://www.youtube.com/results?search_query=coesão+coerência+textual+concurso+banco+brasil',
       desc: 'Conectivos, referenciação e lógica do texto em questões de prova'
     },
     {
-      title: 'Questões de Interpretação Resolvidas — Banco do Brasil',
-      channel: 'Direção Concursos',
-      url: 'https://www.youtube.com/results?search_query=questões+interpretação+texto+banco+brasil+resolvidas+comentadas',
-      desc: 'Resolução de provas anteriores do BB com comentários detalhados'
-    }
-  ],
-
-  'por-redacao': [
-    {
-      title: 'Redação Oficial — Memorando, Ofício e E-mail Corporativo',
+      title: 'Conectivos — Uso Correto em Provas de Concurso',
       channel: 'Estratégia Concursos',
-      url: 'https://www.youtube.com/results?search_query=redação+oficial+memorando+ofício+e-mail+corporativo+concurso',
-      desc: 'Estrutura e linguagem da correspondência oficial bancária'
+      url: 'https://www.youtube.com/results?search_query=conectivos+conjunções+uso+correto+concurso+banco+brasil',
+      desc: 'Porém, contudo, assim, logo, entretanto — diferenças e uso correto'
     },
     {
-      title: 'Manual de Redação da Presidência — Aplicado a Concursos',
-      channel: 'Gran Cursos Online',
-      url: 'https://www.youtube.com/results?search_query=manual+redação+presidência+república+concurso+banco+brasil',
-      desc: 'Normas oficiais de linguagem e formalidade nos documentos públicos'
+      title: 'Referência Pronominal e Coesão — Questões Comentadas',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=referência+pronominal+coesão+questões+concurso+bancário',
+      desc: 'Como identificar o antecedente de pronomes e conectivos em questões'
     }
   ],
 
   // ── MATEMÁTICA ─────────────────────────────────────────────────
-  'mat-basica': [
-    {
-      title: 'Porcentagem para Concurso BB — Básico ao Avançado',
-      channel: 'Estratégia Concursos',
-      url: 'https://www.youtube.com/results?search_query=porcentagem+concurso+banco+brasil+exercícios+resolvidos',
-      desc: 'Porcentagem, acréscimo, desconto e variação percentual'
-    },
-    {
-      title: 'Regra de Três Simples e Composta — Concurso Bancário',
-      channel: 'Direção Concursos',
-      url: 'https://www.youtube.com/results?search_query=regra+três+simples+composta+concurso+banco+brasil',
-      desc: 'Resolução de problemas de proporção para provas bancárias'
-    },
-    {
-      title: 'Razão e Proporção com Questões Comentadas',
-      channel: 'Gran Cursos Online',
-      url: 'https://www.youtube.com/results?search_query=razão+proporção+questões+comentadas+concurso+banco+brasil',
-      desc: 'Teoria e exercícios de razão e proporção no estilo CESGRANRIO'
-    }
-  ],
-
-  'mat-financeira': [
-    {
-      title: 'Juros Compostos — Matemática Financeira Concurso BB',
-      channel: 'Estratégia Concursos',
-      url: 'https://www.youtube.com/results?search_query=juros+compostos+matemática+financeira+concurso+banco+brasil',
-      desc: 'Fórmula M = C(1+i)ⁿ, montante e aplicações nas provas do BB'
-    },
-    {
-      title: 'Juros Simples vs Compostos — Quando usar cada um',
-      channel: 'Direção Concursos',
-      url: 'https://www.youtube.com/results?search_query=juros+simples+compostos+diferença+exercícios+banco+brasil+prova',
-      desc: 'Diferenças, fórmulas e questões que pedem cada modalidade'
-    },
-    {
-      title: 'Desconto Bancário e Comercial — Concurso',
-      channel: 'Gran Cursos Online',
-      url: 'https://www.youtube.com/results?search_query=desconto+bancário+comercial+concurso+banco+brasil+questões',
-      desc: 'Desconto simples e racional — valor atual e nominal'
-    }
-  ],
-
-  'mat-estatistica': [
-    {
-      title: 'Estatística Básica — Média, Mediana e Moda para Concurso',
-      channel: 'Estratégia Concursos',
-      url: 'https://www.youtube.com/results?search_query=estatística+média+mediana+moda+concurso+banco+brasil',
-      desc: 'Medidas de tendência central e dispersão para provas do BB'
-    },
-    {
-      title: 'Probabilidade para Concurso Bancário',
-      channel: 'Direção Concursos',
-      url: 'https://www.youtube.com/results?search_query=probabilidade+concurso+bancário+banco+brasil+exercícios',
-      desc: 'Espaço amostral, eventos, probabilidade condicional e questões'
-    }
-  ],
-
-  'mat-raciocinio': [
+  'mat-logica': [
     {
       title: 'Raciocínio Lógico — Proposições e Tabelas-Verdade',
       channel: 'Estratégia Concursos',
@@ -155,6 +104,69 @@ window.VIDEOS_DATA = {
       channel: 'Direção Concursos',
       url: 'https://www.youtube.com/results?search_query=silogismo+inferência+lógica+questões+comentadas+concurso+bancário',
       desc: 'Dedução e indução lógica no estilo das provas bancárias'
+    }
+  ],
+
+  'mat-porcentagem': [
+    {
+      title: 'Juros Compostos — Matemática Financeira Concurso BB',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=juros+compostos+matemática+financeira+concurso+banco+brasil',
+      desc: 'Fórmula M = C(1+i)ⁿ, montante e aplicações nas provas do BB'
+    },
+    {
+      title: 'Porcentagem para Concurso BB — Básico ao Avançado',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=porcentagem+concurso+banco+brasil+exercícios+resolvidos',
+      desc: 'Porcentagem, acréscimo, desconto e variação percentual'
+    },
+    {
+      title: 'Juros Simples vs Compostos — Desconto Bancário',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=juros+simples+compostos+desconto+bancário+concurso+banco+brasil',
+      desc: 'Diferenças, fórmulas e questões que pedem cada modalidade'
+    }
+  ],
+
+  'mat-estatistica': [
+    {
+      title: 'Estatística Básica — Média, Mediana e Moda para Concurso',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=estatística+média+mediana+moda+concurso+banco+brasil',
+      desc: 'Medidas de tendência central e dispersão para provas do BB'
+    },
+    {
+      title: 'Probabilidade para Concurso Bancário',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=probabilidade+concurso+bancário+banco+brasil+exercícios',
+      desc: 'Espaço amostral, eventos, probabilidade condicional e questões'
+    },
+    {
+      title: 'Análise Combinatória — Permutação e Combinação',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=análise+combinatória+permutação+combinação+concurso+banco+brasil',
+      desc: 'Arranjo, permutação e combinação com exercícios do estilo BB'
+    }
+  ],
+
+  'mat-proporcao': [
+    {
+      title: 'Regra de Três Simples e Composta — Concurso Bancário',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=regra+três+simples+composta+concurso+banco+brasil',
+      desc: 'Resolução de problemas de proporção para provas bancárias'
+    },
+    {
+      title: 'Razão e Proporção com Questões Comentadas',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=razão+proporção+questões+comentadas+concurso+banco+brasil',
+      desc: 'Teoria e exercícios de razão e proporção no estilo CESGRANRIO'
+    },
+    {
+      title: 'Divisão Proporcional e Misturas — Concurso BB',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=divisão+proporcional+misturas+concurso+banco+brasil+exercícios',
+      desc: 'Distribuição de lucros, misturas e problemas de proporcionalidade'
     }
   ],
 
@@ -213,6 +225,12 @@ window.VIDEOS_DATA = {
       channel: 'Gran Cursos Online',
       url: 'https://www.youtube.com/results?search_query=bolsa+valores+B3+funcionamento+operações+concurso+banco+brasil',
       desc: 'Como funciona a B3, pregão eletrônico e custódia'
+    },
+    {
+      title: 'Fundos de Investimento — CVM e Regulação',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=fundos+investimento+CVM+regulação+concurso+banco+brasil',
+      desc: 'Tipos de fundos, cotas, riscos e tributação para o concurso'
     }
   ],
 
