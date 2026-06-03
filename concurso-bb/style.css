@@ -851,6 +851,76 @@ h1, h2, h3, h4 { line-height: 1.2; }
 }
 .btn-start-quiz:active { transform: translateY(0); }
 
+/* Video cards */
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.video-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.video-card:hover {
+  border-color: #FF4444;
+  background: #1a0f0f;
+  transform: translateX(2px);
+}
+.video-card:active { transform: translateX(0); }
+.video-thumb {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-play-icon {
+  width: 40px;
+  height: 40px;
+}
+.video-info {
+  flex: 1;
+  min-width: 0;
+}
+.video-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text1);
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+.video-channel {
+  font-size: 0.7rem;
+  color: #FF6666;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.video-desc {
+  font-size: 0.7rem;
+  color: var(--text2);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.video-ext {
+  flex-shrink: 0;
+  color: var(--text3);
+  opacity: 0.5;
+}
+.video-card:hover .video-ext { opacity: 1; color: #FF6666; }
+
 /* ============================================================
    QUIZ SCREEN
    ============================================================ */
