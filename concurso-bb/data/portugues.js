@@ -555,7 +555,7 @@ SUBSTANTIVO (tem artigo antes ou adjetivo depois):
 "Entendo seu PORQUÊ." (= sua razão)
 
 FINAL DE FRASE OU ISOLADO:
-"Ele foi, mas não sei POR QU�."
+"Ele foi, mas não sei POR QUÊ."
 "Não entendo POR QUÊ."
 
 Exemplos do BB:
@@ -645,7 +645,7 @@ Prefixo terminado em vogal + palavra iniciada em S:
             'Fiscal'
           ],
           answer: 2,
-          explanation: '"Jurídico" é proparoxítona (JU-RÍ-di-co — sílaba tônica é a antepenúltima: RÍ) e todas as proparoxítonas são acentuadas obrigatoriamente. "Protocolo" é paroxítona terminada em O (não acentuada). "Eficaz" é oxítona terminada em Z (não acentuada). "Fiscal" é paroxítona terminada em L — espera, terminada em L acentua? Sim! Mas "fiscal" é FIS-CAL, paroxítona terminada em L → fis-CAL... na verdade é oxítona. Oxítona em L não se acentua.'
+          explanation: '"Jurídico" é proparoxítona (JU-RÍ-di-co — sílaba tônica é a antepenúltima: RÍ) e todas as proparoxítonas são acentuadas obrigatoriamente. "Protocolo" é paroxítona terminada em O (não acentuada). "Eficaz" é oxítona terminada em Z (não acentuada). "Fiscal" é paroxítona terminada em L — na verdade é oxítona: fis-CAL. Oxítona em L não se acentua.'
         }
       ]
     }
