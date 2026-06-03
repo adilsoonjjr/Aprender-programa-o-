@@ -5,7 +5,7 @@
 
 'use strict';
 
-// ── STATE ──────────────────────────────────────────────────────
+// ── STATE ──────────────────────────────────────────────────
 const STATE = {
   xp: 0,
   level: 1,
@@ -36,7 +36,7 @@ const LEVELS = [
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
-// ── PERSISTENCE ────────────────────────────────────────────────
+// ── PERSISTENCE ────────────────────────────────────────────
 
 function loadState() {
   try {
@@ -44,6 +44,7 @@ function loadState() {
     if (raw) {
       const saved = JSON.parse(raw);
       Object.assign(STATE, saved);
+      // ensure quiz sub-object is intact
       if (!STATE.quiz) {
         STATE.quiz = { questions: [], idx: 0, score: 0, answered: false, topicXP: 0 };
       }
@@ -57,6 +58,7 @@ function loadState() {
 
 function saveState() {
   try {
+    // Don't persist quiz runtime data
     const toSave = {
       xp: STATE.xp,
       level: STATE.level,
@@ -73,11 +75,12 @@ function saveState() {
 function updateStreak() {
   const today = getTodayString();
   const last = STATE.lastStudyDate;
-  if (!last) return;
+  if (!last) return; // no previous study day yet
   const yesterday = getYesterdayString();
   if (last === yesterday) {
-    // streak continues
+    // streak continues — will be incremented on first study action today
   } else if (last !== today) {
+    // missed a day — reset streak
     STATE.streak = 0;
     saveState();
   }
@@ -85,14 +88,14 @@ function updateStreak() {
 
 function markStudyToday() {
   const today = getTodayString();
-  if (STATE.lastStudyDate === today) return;
+  if (STATE.lastStudyDate === today) return; // already counted today
   const yesterday = getYesterdayString();
   if (STATE.lastStudyDate === yesterday) {
     STATE.streak += 1;
   } else if (!STATE.lastStudyDate) {
     STATE.streak = 1;
   } else {
-    STATE.streak = 1;
+    STATE.streak = 1; // reset after break
   }
   STATE.lastStudyDate = today;
   saveState();
@@ -109,7 +112,7 @@ function getYesterdayString() {
   return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 }
 
-// ── LEVEL HELPERS ──────────────────────────────────────────────
+// ── LEVEL HELPERS ──────────────────────────────────────────
 
 function getLevelInfo(xp) {
   let current = LEVELS[0];
@@ -145,7 +148,7 @@ function getPrevLevelMin(xp) {
   return prev;
 }
 
-// ── DATA ACCESSORS ─────────────────────────────────────────────
+// ── DATA ACCESSORS ───────────────────────────────────────────
 
 function getAllSubjects() {
   return [
@@ -176,19 +179,43 @@ function countDoneTopics() {
   return Object.keys(STATE.completed).length;
 }
 
+// ── Get questions from a topic (handles both data formats) ──────
+
 function getTopicQuestions(topic) {
-  if (Array.isArray(topic.questions) && topic.questions.length > 0) return topic.questions;
-  if (Array.isArray(topic.quiz) && topic.quiz.length > 0) return topic.quiz;
+  // Format 1: topic.questions[]
+  if (Array.isArray(topic.questions) && topic.questions.length > 0) {
+    return topic.questions;
+  }
+  // Format 2: topic.quiz[]
+  if (Array.isArray(topic.quiz) && topic.quiz.length > 0) {
+    return topic.quiz;
+  }
   return [];
 }
 
+// ── Get theory HTML from topic ──────────────────────────────
+
 function getTopicTheory(topic) {
+  // Format 1: topic.theory (string)
   if (typeof topic.theory === 'string') return topic.theory;
+  // Format 2: topic.lesson.theory
   if (topic.lesson && typeof topic.lesson.theory === 'string') return topic.lesson.theory;
   return '<p>Conteúdo em desenvolvimento.</p>';
 }
 
+// ── Get videos for topic ────────────────────────────────────
+
+function getTopicVideos(topicId) {
+  if (window.VIDEOS_DATA && window.VIDEOS_DATA[topicId]) {
+    return window.VIDEOS_DATA[topicId];
+  }
+  return [];
+}
+
+// ── Get examples from topic ─────────────────────────────────
+
 function getTopicExamples(topic) {
+  // Format 1: topic.examples[]  with .header / .code / .explanation
   if (Array.isArray(topic.examples) && topic.examples.length > 0) {
     return topic.examples.map(ex => ({
       title: ex.header || ex.title || 'Exemplo',
@@ -196,6 +223,7 @@ function getTopicExamples(topic) {
       explanation: ex.explanation || ''
     }));
   }
+  // Format 2: topic.lesson.examples[] with .title / .code / .explanation
   if (topic.lesson && Array.isArray(topic.lesson.examples) && topic.lesson.examples.length > 0) {
     return topic.lesson.examples.map(ex => ({
       title: ex.title || ex.header || 'Exemplo',
@@ -206,7 +234,7 @@ function getTopicExamples(topic) {
   return [];
 }
 
-// ── DOM HELPERS ────────────────────────────────────────────────
+// ── DOM HELPERS ──────────────────────────────────────────
 
 function setEl(id, html) {
   const el = document.getElementById(id);
@@ -236,7 +264,7 @@ function shuffleArray(arr) {
   return a;
 }
 
-// ── SCREEN NAVIGATION ──────────────────────────────────────────
+// ── SCREEN NAVIGATION ────────────────────────────────────
 
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -244,17 +272,19 @@ function showScreen(id) {
   if (target) {
     target.classList.add('active');
     target.scrollTo(0, 0);
+    // update mini XP in headers
     setEl('headerXP', STATE.xp);
     setEl('lessonHeaderXP', STATE.xp);
   }
 }
 
-// ── HOME SCREEN ────────────────────────────────────────────────
+// ── HOME SCREEN ──────────────────────────────────────────
 
 function renderHome() {
   const levelInfo = getLevelInfo(STATE.xp);
   const levelNum = getLevelNumber(STATE.xp);
 
+  // Player card
   setEl('playerAvatar', levelInfo.icon);
   setEl('playerLevel', levelInfo.name);
   setEl('statXP', STATE.xp.toLocaleString('pt-BR'));
@@ -262,6 +292,7 @@ function renderHome() {
   setEl('statStreak', STATE.streak);
   setEl('statTopics', countDoneTopics());
 
+  // XP progress bar
   const prevMin = getPrevLevelMin(STATE.xp);
   const nextMin = getNextLevelMin(STATE.xp);
   const progressXP = STATE.xp - prevMin;
@@ -277,7 +308,9 @@ function renderHome() {
   const progressEl = document.querySelector('.xp-progress');
   if (progressEl) progressEl.setAttribute('aria-valuenow', pct);
 
+  // Subject grid
   renderSubjectGrid();
+
   showScreen('home');
 }
 
@@ -290,6 +323,7 @@ function renderSubjectGrid() {
     const total = subject.topics.length;
     const done = subject.topics.filter(t => isTopicDone(subject.id, t.id)).length;
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    // SVG progress ring: r=12, circumference≈75.4
     const circ = 75.4;
     const offset = circ - (circ * pct / 100);
 
@@ -315,7 +349,7 @@ function renderSubjectGrid() {
   }).join('');
 }
 
-// ── TOPICS SCREEN ──────────────────────────────────────────────
+// ── TOPICS SCREEN ──────────────────────────────────────────
 
 function showTopics(subjectId) {
   const subject = getSubjectById(subjectId);
@@ -323,12 +357,16 @@ function showTopics(subjectId) {
 
   STATE.currentSubject = subjectId;
 
+  // Update header
   setEl('topicsTitle', escapeHtml(subject.name));
   setEl('headerXP', STATE.xp);
+
+  // Hero
   setEl('topicsHeroIcon', subject.icon);
   setEl('topicsHeroName', escapeHtml(subject.name));
   setEl('topicsHeroDesc', escapeHtml(subject.description || ''));
 
+  // Topics list
   const list = getEl('topicsList');
   if (list) {
     list.innerHTML = subject.topics.map(topic => {
@@ -360,7 +398,7 @@ function showTopics(subjectId) {
   showScreen('topics');
 }
 
-// ── LESSON SCREEN ──────────────────────────────────────────────
+// ── LESSON SCREEN ──────────────────────────────────────────
 
 function showLesson(subjectId, topicId) {
   const subject = getSubjectById(subjectId);
@@ -372,11 +410,14 @@ function showLesson(subjectId, topicId) {
 
   markStudyToday();
 
+  // Header
   setEl('lessonTitle', escapeHtml(topic.title));
   setEl('lessonHeaderXP', STATE.xp);
 
+  // Build lesson body
   const theory = getTopicTheory(topic);
   const examples = getTopicExamples(topic);
+  const videos = getTopicVideos(topic.id);
   const questions = getTopicQuestions(topic);
   const qCount = questions.length;
 
@@ -389,6 +430,25 @@ function showLesson(subjectId, topicId) {
       <div class="code-box"><pre>${escapeHtml(ex.code)}</pre></div>
       <div class="explanation-box">${ex.explanation}</div>
     </div>`).join('');
+
+  const videosHTML = videos.length > 0 ? `
+    <div class="lesson-section-label">Videoaulas Recomendadas</div>
+    <div class="video-list">
+      ${videos.map(v => `
+        <a href="${v.url}" target="_blank" rel="noopener noreferrer" class="video-card" aria-label="${escapeHtml(v.title)}">
+          <div class="video-thumb" aria-hidden="true">
+            <svg class="video-play-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12" fill="#FF0000" opacity="0.9"/><polygon points="9.5,7 18,12 9.5,17" fill="white"/></svg>
+          </div>
+          <div class="video-info">
+            <div class="video-title">${escapeHtml(v.title)}</div>
+            <div class="video-channel">📺 ${escapeHtml(v.channel)}</div>
+            <div class="video-desc">${escapeHtml(v.desc)}</div>
+          </div>
+          <div class="video-ext" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </a>`).join('')}
+    </div>` : '';
 
   const hasQuiz = qCount > 0;
 
@@ -403,6 +463,8 @@ function showLesson(subjectId, topicId) {
 
     <div class="lesson-section-label">Teoria</div>
     <div class="lesson-theory">${theory}</div>
+
+    ${videosHTML}
 
     ${examples.length > 0 ? `
       <div class="lesson-section-label">Exemplos Práticos</div>
@@ -435,7 +497,7 @@ function goBackFromLesson() {
   }
 }
 
-// ── COPY CODE ──────────────────────────────────────────────────
+// ── COPY CODE ────────────────────────────────────────────
 
 function copyCode(btn) {
   const pre = btn.closest('.example-block').querySelector('pre');
@@ -471,7 +533,7 @@ function fallbackCopy(text, btn) {
   }, 2000);
 }
 
-// ── QUIZ ───────────────────────────────────────────────────────
+// ── QUIZ ─────────────────────────────────────────────────────
 
 function startQuiz() {
   const topic = getTopicById(STATE.currentSubject, STATE.currentTopic);
@@ -483,6 +545,7 @@ function startQuiz() {
     return;
   }
 
+  // Shuffle questions and take up to 5
   const shuffled = shuffleArray(allQuestions).slice(0, 5);
 
   STATE.quiz = {
@@ -493,7 +556,9 @@ function startQuiz() {
     topicXP: topic.xp || 30
   };
 
+  // Update quiz title
   setEl('quizTitle', escapeHtml(topic.title));
+
   renderQuestion();
   showScreen('quiz');
 }
@@ -503,15 +568,19 @@ function renderQuestion() {
   const total = questions.length;
   const q = questions[idx];
 
+  // Read question text from q.question or q.q
   const qText = q.question || q.q || 'Questão sem texto';
 
+  // Counter and progress
   setEl('quizCounter', `${idx + 1}/${total}`);
   const pct = Math.round((idx / total) * 100);
   const bar = getEl('quizProgressBar');
   if (bar) bar.style.width = pct + '%';
 
+  // Question text
   setEl('questionText', escapeHtml(qText));
 
+  // Options
   const optsList = getEl('optionsList');
   if (optsList) {
     const options = q.options || [];
@@ -524,6 +593,7 @@ function renderQuestion() {
       </button>`).join('');
   }
 
+  // Hide feedback and next button
   const fb = getEl('feedbackBox');
   if (fb) { fb.classList.remove('show', 'wrong-fb'); fb.style.display = 'none'; }
   const btnNext = getEl('btnNext');
@@ -543,6 +613,7 @@ function selectAnswer(selectedIdx) {
 
   if (isCorrect) STATE.quiz.score += 1;
 
+  // Style option buttons
   const btns = document.querySelectorAll('.option-btn');
   btns.forEach((btn, i) => {
     btn.disabled = true;
@@ -555,6 +626,7 @@ function selectAnswer(selectedIdx) {
     }
   });
 
+  // Show feedback
   const fb = getEl('feedbackBox');
   if (fb) {
     fb.style.display = 'flex';
@@ -576,6 +648,7 @@ function selectAnswer(selectedIdx) {
     setEl('feedbackExplanation', explanationHTML);
   }
 
+  // Show next button
   const btnNext = getEl('btnNext');
   if (btnNext) {
     const isLast = idx === questions.length - 1;
@@ -589,6 +662,7 @@ function nextQuestion() {
 
   if (idx < questions.length - 1) {
     STATE.quiz.idx += 1;
+    // Update progress bar
     const pct = Math.round(((idx + 1) / questions.length) * 100);
     const bar = getEl('quizProgressBar');
     if (bar) bar.style.width = pct + '%';
@@ -599,27 +673,31 @@ function nextQuestion() {
 }
 
 function confirmLeaveQuiz() {
+  // Simple confirmation before leaving mid-quiz
   if (!STATE.quiz.answered && STATE.quiz.idx > 0) {
     if (!confirm('Sair do quiz? Seu progresso nesta sessão será perdido.')) return;
   }
   goBackFromLesson();
 }
 
-// ── RESULTS ────────────────────────────────────────────────────
+// ── RESULTS ──────────────────────────────────────────────
 
 function showResults() {
   const { questions, score, topicXP } = STATE.quiz;
   const total = questions.length;
   const pct = total > 0 ? score / total : 0;
 
+  // Calculate stars (0-3)
   let stars = 0;
   if (pct >= 0.4) stars = 1;
   if (pct >= 0.7) stars = 2;
   if (pct >= 0.9) stars = 3;
 
+  // XP earned (proportional to score, minimum 20% of topic XP for trying)
   const baseXP = Math.max(Math.round(pct * topicXP), Math.round(topicXP * 0.2));
   const earnedXP = stars === 3 ? topicXP : baseXP;
 
+  // Award XP and mark topic done if stars ≥ 1
   const prevXP = STATE.xp;
   const prevLevel = getLevelNumber(STATE.xp);
   STATE.xp += earnedXP;
@@ -632,6 +710,7 @@ function showResults() {
   markStudyToday();
   saveState();
 
+  // Trophy emoji based on score
   let trophy = '😔';
   if (stars === 1) trophy = '🥉';
   if (stars === 2) trophy = '🥈';
@@ -639,14 +718,17 @@ function showResults() {
 
   setEl('resultsTrophy', trophy);
 
+  // Title
   let title = 'Continue estudando!';
   if (stars === 1) title = 'Bom início!';
   if (stars === 2) title = 'Muito bem!';
   if (stars === 3) title = 'Perfeito! 🎯';
   setEl('resultsTitle', title);
 
+  // Score
   setEl('resultsScore', `${score}/${total}`);
 
+  // Stars
   const starsEl = getEl('resultsStars');
   if (starsEl) {
     starsEl.innerHTML = [1, 2, 3].map((s, i) => {
@@ -658,11 +740,14 @@ function showResults() {
     }).join('');
   }
 
+  // XP gained
   setEl('resultsXpValue', `+${earnedXP} XP`);
 
+  // Progress bar — full
   const bar = getEl('quizProgressBar');
   if (bar) bar.style.width = '100%';
 
+  // Level up notification
   const newLevel = getLevelNumber(STATE.xp);
   if (newLevel > prevLevel) {
     setTimeout(() => {
@@ -690,7 +775,7 @@ function backToTopics() {
   }
 }
 
-// ── TOAST ──────────────────────────────────────────────────────
+// ── TOAST ──────────────────────────────────────────────────
 
 let toastTimeout = null;
 
@@ -701,6 +786,7 @@ function showToast(msg, sub) {
   setEl('toastMsg', escapeHtml(msg));
   setEl('toastSub', sub ? escapeHtml(sub) : '');
 
+  // Icon based on message content
   const icon = msg.includes('XP') ? '⚡' :
                msg.includes('Nível') ? '🎖️' :
                msg.includes('Offline') ? '📵' : '🎉';
@@ -714,7 +800,7 @@ function showToast(msg, sub) {
   }, 3500);
 }
 
-// ── OFFLINE BADGE ──────────────────────────────────────────────
+// ── OFFLINE BADGE ──────────────────────────────────────────
 
 function updateOnlineStatus() {
   const badge = getEl('offlineBadge');
@@ -730,13 +816,14 @@ function updateOnlineStatus() {
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
-// ── INIT ───────────────────────────────────────────────────────
+// ── INIT ─────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
   loadState();
   updateOnlineStatus();
   renderHome();
 
+  // Add keyboard shortcut: Escape to go back
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       const active = document.querySelector('.screen.active');
