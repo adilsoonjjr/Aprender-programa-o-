@@ -18,11 +18,13 @@
 </head>
 <body>
 
+  <!-- Offline badge -->
   <div class="offline-badge" id="offlineBadge" aria-live="polite">
     <span class="offline-dot"></span>
     Modo Offline — Conteúdo disponível localmente
   </div>
 
+  <!-- Toast notification -->
   <div class="toast" id="toast" role="status" aria-live="polite">
     <span class="toast-icon" id="toastIcon">🎉</span>
     <div class="toast-text">
@@ -31,29 +33,46 @@
     </div>
   </div>
 
+  <!-- ===== SCREEN: HOME ===== -->
   <main class="screen active" id="screen-home" role="main">
     <div class="home-hero">
       <div class="hero-logo" aria-label="BB Concurso">🏦</div>
       <h1 class="hero-title">BB Concurso</h1>
       <p class="hero-sub">Sua preparação para o Banco do Brasil</p>
     </div>
+
     <div class="home-content">
+      <!-- Player card -->
       <div class="player-card" id="playerCard" aria-label="Seu progresso">
         <div class="player-avatar" id="playerAvatar" aria-hidden="true">📚</div>
         <div class="player-info">
           <div class="player-level" id="playerLevel">Candidato</div>
           <div class="player-stats">
-            <div class="stat-item"><div class="stat-value" id="statXP">0</div><div class="stat-label">XP</div></div>
+            <div class="stat-item">
+              <div class="stat-value" id="statXP">0</div>
+              <div class="stat-label">XP</div>
+            </div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-value" id="statLevel">1</div><div class="stat-label">Nível</div></div>
+            <div class="stat-item">
+              <div class="stat-value" id="statLevel">1</div>
+              <div class="stat-label">Nível</div>
+            </div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-value" id="statStreak">0</div><div class="stat-label">🔥 Dias</div></div>
+            <div class="stat-item">
+              <div class="stat-value" id="statStreak">0</div>
+              <div class="stat-label">🔥 Dias</div>
+            </div>
             <div class="stat-divider"></div>
-            <div class="stat-item"><div class="stat-value" id="statTopics">0</div><div class="stat-label">Tópicos</div></div>
+            <div class="stat-item">
+              <div class="stat-value" id="statTopics">0</div>
+              <div class="stat-label">Tópicos</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="xp-progress-wrap" aria-label="Progresso de XP">
+
+      <!-- XP Progress bar -->
+      <div class="xp-progress-wrap" aria-label="Progresso de XP para o próximo nível">
         <div class="xp-progress-labels">
           <span id="xpProgressLabel">Progresso para o próximo nível</span>
           <span id="xpProgressValue">0 / 150 XP</span>
@@ -62,23 +81,39 @@
           <div class="xp-progress-bar" id="xpProgressBar"></div>
         </div>
       </div>
+
+      <!-- Subject grid -->
       <section class="subjects-section" aria-label="Matérias">
         <h2 class="section-title">Matérias</h2>
-        <div class="subject-grid" id="subjectGrid" role="list"></div>
+        <div class="subject-grid" id="subjectGrid" role="list">
+          <!-- Rendered by JS -->
+        </div>
       </section>
+
+      <!-- Footer tip -->
       <footer class="home-footer">
-        <div class="footer-tip"><span class="footer-tip-icon">📵</span><span>Funciona 100% offline após o primeiro acesso</span></div>
+        <div class="footer-tip">
+          <span class="footer-tip-icon">📵</span>
+          <span>Funciona 100% offline após o primeiro acesso</span>
+        </div>
         <div class="footer-copy">BB Concurso © 2025</div>
       </footer>
     </div>
   </main>
 
+  <!-- ===== SCREEN: TOPICS ===== -->
   <section class="screen" id="screen-topics" role="region" aria-label="Tópicos">
     <header class="header" id="topicsHeader">
-      <button class="btn-back" onclick="showScreen('home')" aria-label="Voltar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="btn-back" onclick="showScreen('home')" aria-label="Voltar para o início">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <div class="header-title" id="topicsTitle">Matéria</div>
-      <div class="header-xp-mini"><span class="xp-mini-icon">⚡</span><span id="headerXP">0</span></div>
+      <div class="header-xp-mini">
+        <span class="xp-mini-icon">⚡</span>
+        <span id="headerXP">0</span>
+      </div>
     </header>
+
     <div class="screen-body topics-body">
       <div class="subject-hero" id="topicsHero">
         <span class="subject-hero-icon" id="topicsHeroIcon">📚</span>
@@ -87,30 +122,52 @@
           <div class="subject-hero-desc" id="topicsHeroDesc"></div>
         </div>
       </div>
-      <div class="topics-list" id="topicsList" role="list"></div>
+      <div class="topics-list" id="topicsList" role="list">
+        <!-- Rendered by JS -->
+      </div>
     </div>
   </section>
 
+  <!-- ===== SCREEN: LESSON ===== -->
   <section class="screen" id="screen-lesson" role="region" aria-label="Aula">
     <header class="header" id="lessonHeader">
-      <button class="btn-back" id="lessonBackBtn" onclick="goBackFromLesson()" aria-label="Voltar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="btn-back" id="lessonBackBtn" onclick="goBackFromLesson()" aria-label="Voltar para tópicos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <div class="header-title" id="lessonTitle">Aula</div>
-      <div class="header-xp-mini"><span class="xp-mini-icon">⚡</span><span id="lessonHeaderXP">0</span></div>
+      <div class="header-xp-mini">
+        <span class="xp-mini-icon">⚡</span>
+        <span id="lessonHeaderXP">0</span>
+      </div>
     </header>
-    <div class="lesson-body screen-body" id="lessonBody"></div>
+
+    <div class="lesson-body screen-body" id="lessonBody">
+      <!-- Rendered by JS -->
+    </div>
   </section>
 
+  <!-- ===== SCREEN: QUIZ ===== -->
   <section class="screen" id="screen-quiz" role="region" aria-label="Quiz">
     <header class="header quiz-header">
-      <button class="btn-back" id="quizBackBtn" onclick="confirmLeaveQuiz()" aria-label="Sair"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="btn-back" id="quizBackBtn" onclick="confirmLeaveQuiz()" aria-label="Sair do quiz">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
       <div class="header-title" id="quizTitle">Quiz</div>
       <div class="quiz-counter" id="quizCounter">1/5</div>
     </header>
+
     <div class="screen-body quiz-body">
-      <div class="quiz-progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+      <div class="quiz-progress-wrap" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="quiz-progress-bar" id="quizProgressBar"></div>
+      </div>
+
       <div class="quiz-content">
         <p class="question-text" id="questionText">Pergunta...</p>
-        <div class="options-list" id="optionsList" role="group" aria-label="Opções de resposta"></div>
+
+        <div class="options-list" id="optionsList" role="group" aria-label="Opções de resposta">
+          <!-- Rendered by JS -->
+        </div>
+
         <div class="feedback-box" id="feedbackBox" aria-live="polite">
           <div class="feedback-icon" id="feedbackIcon">✓</div>
           <div class="feedback-content">
@@ -118,33 +175,56 @@
             <div class="feedback-explanation" id="feedbackExplanation"></div>
           </div>
         </div>
-        <button class="btn-next" id="btnNext" onclick="nextQuestion()" aria-label="Próxima questão">Próxima questão →</button>
+
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()" aria-label="Próxima questão">
+          Próxima questão →
+        </button>
       </div>
     </div>
   </section>
 
+  <!-- ===== SCREEN: RESULTS ===== -->
   <section class="screen" id="screen-results" role="region" aria-label="Resultado">
     <div class="results-body">
       <div class="results-trophy" id="resultsTrophy" aria-hidden="true">🏆</div>
       <h2 class="results-title" id="resultsTitle">Quiz Concluído!</h2>
-      <div class="results-score-wrap"><div class="results-score" id="resultsScore">0/5</div><div class="results-score-label">Respostas corretas</div></div>
-      <div class="results-stars" id="resultsStars" aria-label="Classificação"></div>
-      <div class="results-xp-gained" id="resultsXpGained"><span class="xp-gained-icon">⚡</span><span id="resultsXpValue">+0 XP</span><span class="xp-gained-label">ganhos</span></div>
+      <div class="results-score-wrap">
+        <div class="results-score" id="resultsScore">0/5</div>
+        <div class="results-score-label">Respostas corretas</div>
+      </div>
+      <div class="results-stars" id="resultsStars" aria-label="Classificação">
+        <!-- Stars rendered by JS -->
+      </div>
+      <div class="results-xp-gained" id="resultsXpGained">
+        <span class="xp-gained-icon">⚡</span>
+        <span id="resultsXpValue">+0 XP</span>
+        <span class="xp-gained-label">ganhos</span>
+      </div>
+
       <div class="results-actions">
-        <button class="btn-primary" onclick="retryQuiz()">🔄 Tentar Novamente</button>
-        <button class="btn-secondary" onclick="backToTopics()">📚 Mais Tópicos</button>
-        <button class="btn-outline" onclick="showScreen('home')">🏠 Início</button>
+        <button class="btn-primary" onclick="retryQuiz()" aria-label="Tentar novamente">
+          🔄 Tentar Novamente
+        </button>
+        <button class="btn-secondary" onclick="backToTopics()" aria-label="Voltar à matéria">
+          📚 Mais Tópicos
+        </button>
+        <button class="btn-outline" onclick="showScreen('home')" aria-label="Ir para o início">
+          🏠 Início
+        </button>
       </div>
     </div>
   </section>
 
+  <!-- Scripts: data first, then app -->
   <script src="data/portugues.js"></script>
   <script src="data/matematica.js"></script>
   <script src="data/bancario.js"></script>
   <script src="data/informatica.js"></script>
   <script src="data/atualidades.js"></script>
   <script src="data/legislacao.js"></script>
+  <script src="data/videos.js"></script>
   <script src="app.js"></script>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(reg => {
