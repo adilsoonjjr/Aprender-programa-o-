@@ -1,10 +1,10 @@
-const CACHE = 'bbconcurso-v5';
+const CACHE = 'bbconcurso-v6';
 const BASE = self.registration.scope;
 const ASSETS = [
   BASE,
   BASE + 'index.html',
-  BASE + 'style.css',
-  BASE + 'app.js',
+  BASE + 'style.css?v=5',
+  BASE + 'app.js?v=5',
   BASE + 'data/portugues.js',
   BASE + 'data/matematica.js',
   BASE + 'data/bancario.js',
