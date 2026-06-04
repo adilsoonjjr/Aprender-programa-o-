@@ -1,4 +1,4 @@
-const CACHE = 'bbconcurso-v1';
+const CACHE = 'bbconcurso-v3';
 const BASE = self.registration.scope;
 const ASSETS = [
   BASE,
@@ -11,6 +11,8 @@ const ASSETS = [
   BASE + 'data/informatica.js',
   BASE + 'data/atualidades.js',
   BASE + 'data/legislacao.js',
+  BASE + 'data/vendas.js',
+  BASE + 'data/videos.js',
   BASE + 'manifest.json'
 ];
 
