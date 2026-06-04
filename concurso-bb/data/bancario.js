@@ -196,6 +196,61 @@ COOPERATIVA DE CRÉDITO:
           ],
           answer: 1,
           explanation: 'Open market: quando o BCB VENDE títulos, os bancos e outros participantes PAGAM ao BCB → dinheiro SAI de circulação → liquidez cai → crédito fica mais caro → inflação recua. É uma política CONTRACIONISTA. Quando o BCB COMPRA títulos, injeta dinheiro no sistema (política expansionista). O open market é o instrumento mais ágil e utilizado diariamente pelo BCB para controlar a taxa SELIC.'
+        },
+        {
+          q: 'O Conselho Monetário Nacional (CMN) é composto por:',
+          options: [
+            'Presidente do BCB, Ministro da Saúde e Ministro da Educação',
+            'Ministro da Fazenda, Ministro do Planejamento e Presidente do BCB',
+            'Presidente do BCB, Presidente da CEF e Diretor da CVM',
+            'Ministro da Fazenda, Presidente do BNDES e Presidente da B3'
+          ],
+          answer: 1,
+          explanation: 'O CMN é composto por três membros: Ministro da Fazenda (presidente do CMN), Ministro do Planejamento e Presidente do Banco Central do Brasil. É um órgão colegiado deliberativo — não executa, apenas define as regras e diretrizes do SFN. (Lei nº 4.595/64, atualizada pela LC 179/2021)'
+        },
+        {
+          q: '(CESGRANRIO BB) O Banco Central do Brasil, na condição de banqueiro dos bancos, tem como atribuição:',
+          options: [
+            'Conceder financiamentos habitacionais diretamente à população de baixa renda',
+            'Receber depósitos compulsórios e voluntários das instituições financeiras',
+            'Emitir ações no mercado de capitais para financiar o Tesouro Nacional',
+            'Fiscalizar o mercado de valores mobiliários e proteger os investidores'
+          ],
+          answer: 1,
+          explanation: 'Como "banqueiro dos bancos", o BCB recebe os depósitos compulsórios (parcela obrigatória dos depósitos que os bancos devem recolher ao BCB) e também aceita depósitos voluntários das instituições financeiras. Além disso, oferece o redesconto (empréstimo de última instância) aos bancos com problemas de liquidez. Financiamento habitacional é função da CEF/SBPE; emissão de ações é do Tesouro; mercado de capitais é da CVM.'
+        },
+        {
+          q: 'A CVM — Comissão de Valores Mobiliários — tem como principal atribuição:',
+          options: [
+            'Fixar a meta da taxa SELIC para controle da inflação',
+            'Fiscalizar e regular o mercado de capitais, protegendo investidores',
+            'Supervisionar seguradoras e planos de previdência complementar aberta',
+            'Emitir papel-moeda e controlar as reservas internacionais'
+          ],
+          answer: 1,
+          explanation: 'A CVM é o órgão supervisor do mercado de capitais: fiscaliza emissão de ações, debêntures, fundos de investimento, garante transparência das informações e protege investidores. A meta SELIC é definida pelo Copom (BCB); seguros são fiscalizados pela Susep; papel-moeda e reservas são funções do BCB.'
+        },
+        {
+          q: 'O Fundo Garantidor de Créditos (FGC) garante depósitos bancários até o limite de:',
+          options: [
+            'R$ 100.000 por CPF/CNPJ por instituição associada',
+            'R$ 150.000 por CPF/CNPJ por instituição associada',
+            'R$ 250.000 por CPF/CNPJ por instituição associada',
+            'R$ 500.000 por CPF/CNPJ por instituição associada'
+          ],
+          answer: 2,
+          explanation: 'O FGC garante até R$ 250.000 por CPF ou CNPJ por conglomerado financeiro, com teto total de R$ 1.000.000 por CPF/CNPJ a cada período de 4 anos. Produtos cobertos: contas correntes, poupança, CDB, LCI, LCA, entre outros. Produtos NÃO cobertos: cotas de fundos de investimento, ações, debêntures.'
+        },
+        {
+          q: '(Estilo CESGRANRIO) Qual instrumento de política monetária é utilizado DIARIAMENTE pelo BCB para ajustar a taxa SELIC ao patamar definido pelo Copom?',
+          options: [
+            'Depósito compulsório',
+            'Redesconto bancário',
+            'Operações de open market (mercado aberto)',
+            'Emissão de papel-moeda'
+          ],
+          answer: 2,
+          explanation: 'O open market (mercado aberto) é o instrumento mais ágil e frequente: o BCB compra ou vende títulos públicos diariamente para manter a taxa SELIC na meta definida pelo Copom. O compulsório é alterado com menor frequência; o redesconto é para situações de iliquidez bancária; emissão de moeda não é instrumento de política monetária — é consequência dela.'
         }
       ]
     },
@@ -380,6 +435,61 @@ Custodiante: guarda os ativos do fundo`,
           ],
           answer: 1,
           explanation: 'Poupança: isenta de IR para PF (único produto nesse perfil com essa combinação), tem garantia do FGC e a liquidez é diária (embora o rendimento só seja creditado na data de aniversário mensal, o saque é possível a qualquer momento sem perda do valor aplicado). CDB com liquidez diária tem IR. LCI tem carência mínima de 90 dias. Fundos têm come-cotas e IR. A poupança é única na combinação: isenção + FGC + acesso imediato ao principal.'
+        },
+        {
+          q: '(CESGRANRIO BB) O CDB — Certificado de Depósito Bancário — é um título:',
+          options: [
+            'Público, emitido pelo Tesouro Nacional para financiar o governo',
+            'Privado de renda fixa emitido por bancos para captar recursos',
+            'De renda variável negociado na B3 como ação bancária',
+            'Emitido por empresas não financeiras para captar dívida corporativa'
+          ],
+          answer: 1,
+          explanation: 'O CDB é um título de renda fixa PRIVADO emitido por bancos (comerciais, múltiplos, etc.) como forma de captar recursos junto aos investidores. O banco paga juros ao investidor e usa o dinheiro para financiar suas operações de crédito. É coberto pelo FGC até R$ 250.000. Diferentemente dos títulos públicos (Tesouro Direto), o CDB representa dívida do banco, não do governo.'
+        },
+        {
+          q: 'A diferença fundamental entre LCI e LCA é:',
+          options: [
+            'A LCI financia o agronegócio e a LCA financia o setor imobiliário',
+            'A LCA é isenta de IR para pessoas físicas e a LCI é tributada',
+            'A LCI está vinculada ao crédito imobiliário e a LCA ao agronegócio — ambas isentas de IR para PF',
+            'A LCI é garantida pelo FGC e a LCA não tem garantia'
+          ],
+          answer: 2,
+          explanation: 'LCI (Letra de Crédito Imobiliário) — recursos destinados ao setor imobiliário. LCA (Letra de Crédito do Agronegócio) — recursos para o agronegócio. AMBAS são isentas de IR para pessoa física e ambas têm cobertura do FGC. A diferença é apenas o setor de destino dos recursos. Ambas têm carência mínima (LCI: 90 dias; LCA: 90 dias) e são emitidas por instituições financeiras.'
+        },
+        {
+          q: '(Estilo CESGRANRIO) O Tesouro Direto é um programa que permite:',
+          options: [
+            'A compra de títulos privados de bancos diretamente pelo investidor',
+            'A aquisição de cotas de fundos de ações da B3 por qualquer cidadão',
+            'A compra de títulos públicos federais por pessoas físicas via internet',
+            'O acesso a financiamentos do BNDES para pequenas empresas'
+          ],
+          answer: 2,
+          explanation: 'O Tesouro Direto, criado em 2002 pelo Tesouro Nacional em parceria com a B3, permite que PESSOAS FÍSICAS comprem títulos públicos federais pela internet, com investimento mínimo de R$ 30. Os principais títulos: Tesouro Selic (pós-fixado), Tesouro Prefixado e Tesouro IPCA+. Não há cobertura do FGC (o emissor é o próprio governo federal), mas o risco é considerado baixo.'
+        },
+        {
+          q: 'O Custo Efetivo Total (CET) de uma operação de crédito representa:',
+          options: [
+            'Apenas a taxa de juros nominal cobrada na operação',
+            'Somente as tarifas e encargos, excluindo os juros contratados',
+            'O custo total da operação, incluindo juros, tarifas, seguros e outros encargos',
+            'A diferença entre a taxa Selic e a taxa cobrada pelo banco'
+          ],
+          answer: 2,
+          explanation: 'O CET, obrigatório desde 2007 (Resolução CMN 3.517), representa o custo total da operação em base anual. Inclui: taxa de juros + tarifas + seguros obrigatórios + outros encargos. O objetivo é facilitar a comparação entre produtos de crédito. Por exemplo, duas operações com a mesma taxa de juros podem ter CET diferente se uma cobrar tarifas adicionais. Consumidor deve sempre comparar pelo CET.'
+        },
+        {
+          q: '(CESGRANRIO BB) Em relação ao cheque especial, é correto afirmar que:',
+          options: [
+            'É um produto de investimento garantido pelo FGC',
+            'É uma modalidade de crédito rotativo pré-aprovado com altas taxas de juros',
+            'Tem taxa de juros máxima fixada em 8% ao ano pelo CMN',
+            'Só pode ser utilizado por pessoas jurídicas'
+          ],
+          answer: 1,
+          explanation: 'O cheque especial é um limite de crédito pré-aprovado vinculado à conta corrente — é ativado automaticamente quando o saldo vai a zero. É considerada uma das modalidades de crédito MAIS CARAS do mercado, com taxas que podem superar 10% ao mês. O CMN estabeleceu um teto de 8% ao mês a partir de 2020. É destinado a pessoas físicas e jurídicas. Não é produto de investimento.'
         }
       ]
     },
@@ -569,6 +679,61 @@ BCB exige capital mínimo para cobertura desse risco.`,
           ],
           answer: 2,
           explanation: 'Risco de LIQUIDEZ: incapacidade de cumprir obrigações imediatas (pagamentos, saques) sem incorrer em perdas significativas. A "corrida bancária" é o caso extremo — muitos clientes sacam simultaneamente, e o banco não tem caixa suficiente pois emprestou os recursos por prazos mais longos. O BCB exige que bancos mantenham reservas mínimas (compulsório e LCR — Liquidity Coverage Ratio) para mitigar esse risco.'
+        },
+        {
+          q: '(CESGRANRIO BB) No mercado primário de valores mobiliários, os recursos captados na emissão de ações:',
+          options: [
+            'Vão para os acionistas vendedores das ações existentes',
+            'Vão para a empresa emissora, que os utiliza para se financiar',
+            'São retidos pela B3 como taxa de intermediação',
+            'Retornam ao investidor como dividendos imediatos'
+          ],
+          answer: 1,
+          explanation: 'No mercado PRIMÁRIO, a empresa emite novas ações (IPO ou follow-on) e os recursos da venda vão diretamente para a empresa emissora — é como a empresa capta capital para investir. No mercado SECUNDÁRIO (Bolsa), as ações já emitidas são negociadas entre investidores, e os recursos vão para quem vende, não para a empresa. A B3 cobra taxas de corretagem, mas não retém o principal.'
+        },
+        {
+          q: 'As debêntures são títulos emitidos por:',
+          options: [
+            'O governo federal para financiar a dívida pública',
+            'Bancos comerciais para captação de depósitos',
+            'Empresas não financeiras (sociedades anônimas) para captar dívida de longo prazo',
+            'Cooperativas de crédito para financiar seus associados'
+          ],
+          answer: 2,
+          explanation: 'Debêntures são títulos de renda fixa emitidos por EMPRESAS NÃO FINANCEIRAS (SA de capital aberto ou fechado) para captar recursos no mercado. O investidor empresta dinheiro à empresa e recebe juros. Prazo geralmente longo (2 a 10+ anos). NÃO têm cobertura do FGC. Reguladas pela CVM. Diferem do CDB (emitido por bancos) e dos títulos públicos (emitidos pelo governo).'
+        },
+        {
+          q: 'Em relação aos Fundos de Investimento, é correto afirmar que:',
+          options: [
+            'São garantidos pelo FGC em caso de insolvência da gestora',
+            'O investidor se torna acionista das empresas investidas pelo fundo',
+            'O investidor adquire cotas e passa a ser coproprietário do patrimônio do fundo',
+            'São regulados exclusivamente pelo Banco Central do Brasil'
+          ],
+          answer: 2,
+          explanation: 'Ao investir em um fundo, o aplicador adquire COTAS — frações do patrimônio total. O fundo é um condomínio de investidores (cotistas) administrado por um gestor profissional. Fundos NÃO são cobertos pelo FGC (o risco é do mercado, não do banco). São regulados pela CVM. O gestor toma as decisões de investimento; o cotista não escolhe individualmente quais ativos comprar.'
+        },
+        {
+          q: '(Estilo CESGRANRIO) O Ibovespa é:',
+          options: [
+            'A taxa básica de juros definida pelo Copom do Banco Central',
+            'O principal índice de desempenho das ações mais negociadas na B3',
+            'O índice de inflação medido mensalmente pelo IBGE',
+            'O indicador de rentabilidade dos fundos de renda fixa'
+          ],
+          answer: 1,
+          explanation: 'O Ibovespa (Índice Bovespa) é o principal indicador de desempenho do mercado de ações brasileiro — mede a variação de uma carteira teórica formada pelas ações mais negociadas e de maior representatividade da B3. Quando o Ibovespa sobe, indica que, em média, as ações subiram; quando cai, o mercado acionário recuou. Não é taxa de juros (isso é a SELIC) nem índice de inflação (IPCA/INPC).'
+        },
+        {
+          q: 'O que diferencia ações ordinárias (ON) de ações preferenciais (PN)?',
+          options: [
+            'As ON têm preferência no recebimento de dividendos; as PN têm direito a voto',
+            'As ON dão direito a voto nas assembleias; as PN têm prioridade no recebimento de dividendos',
+            'Ambas têm direito a voto e recebem dividendos iguais',
+            'As ON são emitidas apenas por bancos; as PN por outras empresas'
+          ],
+          answer: 1,
+          explanation: 'Ações Ordinárias (ON — código terminado em 3): conferem direito de VOTO nas assembleias de acionistas. Ações Preferenciais (PN — código terminado em 4): têm PRIORIDADE no recebimento de dividendos e, em caso de liquidação, no reembolso do capital — mas geralmente sem direito a voto. Mnemônico: ON = "Ordinárias votam"; PN = "Preferenciais recebem primeiro".'
         }
       ]
     },
@@ -761,6 +926,61 @@ NPS baixo = resolver problema PRIMEIRO, depois vender`,
           ],
           answer: 2,
           explanation: 'VENDA CASADA é prática expressamente proibida pelo CDC (Art. 39, I) e pelo BCB: condicionar a venda de um produto ou serviço à aquisição de outro produto ou serviço. Oferecer o seguro juntamente com o empréstimo é permitido; EXIGIR o seguro como condição para aprovação é ilegal. O cliente prejudicado pode reclamar ao SAC, Ouvidoria, Procon, BCB (ou Consumidor.gov.br) e buscar reparação incluindo devolução em dobro do cobrado indevidamente (CDC).'
+        },
+        {
+          q: '(CESGRANRIO BB) O tempo máximo de espera em fila em agências bancárias nos municípios com mais de 500 mil habitantes, conforme legislação federal, é de:',
+          options: [
+            '30 minutos em dias normais e 45 minutos em vésperas de feriado',
+            '20 minutos em dias normais e 30 minutos às sextas-feiras e vésperas de feriado',
+            '15 minutos em qualquer dia da semana',
+            '1 hora em qualquer situação, sem distinção'
+          ],
+          answer: 1,
+          explanation: 'A Lei Federal nº 10.962/2004, regulamentada pelo Decreto 5.061/2004, estabelece: 20 minutos em dias normais e 30 minutos às vésperas de feriados e sextas-feiras, para municípios com mais de 500 mil habitantes. Municípios menores podem ter regulamentação estadual/municipal diferente. O descumprimento pode gerar multa ao banco.'
+        },
+        {
+          q: 'O atendimento preferencial em agências bancárias deve ser oferecido prioritariamente a:',
+          options: [
+            'Clientes com investimentos acima de R$ 50.000 na instituição',
+            'Idosos acima de 60 anos, gestantes, lactantes, pessoas com deficiência e obesos',
+            'Apenas pessoas com deficiência física comprovada por laudo médico',
+            'Funcionários do banco e seus dependentes diretos'
+          ],
+          answer: 1,
+          explanation: 'A Lei nº 10.048/2000 e o Estatuto do Idoso (Lei 10.741/2003) garantem atendimento prioritário a: pessoas com deficiência, idosos (60+), gestantes, lactantes, pessoas com criança de colo e obesos. O banco não pode condicionar esse direito ao valor investido ou tipo de conta. O desrespeito a esse direito constitui infração e pode ser denunciado ao Procon e BCB.'
+        },
+        {
+          q: '(Estilo CESGRANRIO) Sobre o SAC e a Ouvidoria bancária, é correto afirmar:',
+          options: [
+            'O SAC resolve apenas reclamações e a Ouvidoria apenas dúvidas técnicas',
+            'O SAC é o canal de 1º atendimento com prazo de 5 dias úteis; a Ouvidoria atua quando o SAC não resolve, com prazo de 10 dias úteis',
+            'Ambos têm prazo de 30 dias para resolver qualquer reclamação',
+            'A Ouvidoria é obrigatória apenas para bancos com mais de 100 agências'
+          ],
+          answer: 1,
+          explanation: 'Hierarquia de canais: SAC (1ª instância) → resolve em até 5 dias úteis; Ouvidoria (2ª instância) → atua quando o cliente não se satisfaz com o SAC, prazo de até 10 dias úteis prorrogáveis por mais 5 dias; Banco Central → última instância. A Ouvidoria é obrigatória para todas as instituições autorizadas a funcionar pelo BCB, independentemente do porte. (Resolução BCB 4.860/2020)'
+        },
+        {
+          q: 'O que é NPS (Net Promoter Score) no contexto do atendimento bancário?',
+          options: [
+            'Um índice de rentabilidade dos produtos de investimento do banco',
+            'Um indicador de lealdade do cliente baseado na probabilidade de recomendação da instituição',
+            'A nota mínima para aprovação de crédito pessoal pelo banco',
+            'O sistema de pontuação de funcionários pelo número de produtos vendidos'
+          ],
+          answer: 1,
+          explanation: 'NPS = % Promotores (notas 9-10) − % Detratores (notas 0-6). Criado por Fred Reichheld, mede a probabilidade de um cliente recomendar o banco a um amigo ou familiar. Escala de 0 a 10: promotores (9-10), neutros (7-8) e detratores (0-6). É amplamente usado no BB e outros bancos para monitorar a satisfação e lealdade da carteira de clientes por agência e por gerente.'
+        },
+        {
+          q: '(CESGRANRIO BB) A portabilidade de crédito permite ao cliente:',
+          options: [
+            'Transferir seu saldo em conta corrente para outro banco sem custo',
+            'Migrar um empréstimo/financiamento de uma instituição para outra que ofereça taxa menor',
+            'Resgatar investimentos de renda fixa antes do vencimento sem multa',
+            'Solicitar revisão judicial da taxa de juros de um contrato em vigor'
+          ],
+          answer: 1,
+          explanation: 'A portabilidade de crédito (Resolução CMN 4.292/2013) permite ao devedor transferir um contrato de crédito (empréstimo, financiamento) para outra instituição que ofereça condições mais favoráveis (taxa menor, prazo melhor). O prazo para a nova instituição concluir a portabilidade é de 1 dia útil após a confirmação. Não confundir com portabilidade salarial (migração de conta onde se recebe salário).'
         }
       ]
     },
@@ -954,6 +1174,61 @@ ANPD: pode aplicar multa de até 2% do faturamento (máx. R$50M)`,
           ],
           answer: 1,
           explanation: 'KYC (Conheça seu Cliente) é obrigação regulatória imposta pela Circular BCB 3.978 e legislação PLD/FT. Envolve: (1) IDENTIFICAÇÃO: coletar e verificar documentos do cliente; (2) QUALIFICAÇÃO: entender o perfil, origem de renda e objetivo das operações; (3) MONITORAMENTO: acompanhar se as transações são compatíveis com o perfil declarado. Aplica-se a PF e PJ. A atualização cadastral é periódica e obrigatória — perfis de maior risco devem ser atualizados com mais frequência.'
+        },
+        {
+          q: '(CESGRANRIO BB) As fases da lavagem de dinheiro, na ordem cronológica correta, são:',
+          options: [
+            'Integração → Colocação → Ocultação',
+            'Colocação → Ocultação → Integração',
+            'Ocultação → Integração → Colocação',
+            'Transferência → Estratificação → Conversão'
+          ],
+          answer: 1,
+          explanation: 'As 3 fases clássicas: (1) COLOCAÇÃO: inserção do dinheiro ilícito no sistema financeiro (depósitos fracionados, compra de ativos); (2) OCULTAÇÃO (ou estratificação): operações complexas para dificultar o rastreamento (transferências internacionais, conversão em outros ativos); (3) INTEGRAÇÃO: o dinheiro "limpo" retorna à economia como aparentemente lícito. Cada fase tentada é crime de lavagem de dinheiro (Lei 9.613/1998).'
+        },
+        {
+          q: 'O COAF — Conselho de Controle de Atividades Financeiras — tem como função principal:',
+          options: [
+            'Regular as taxas de juros do crédito consignado',
+            'Produzir inteligência financeira e combater lavagem de dinheiro e financiamento ao terrorismo',
+            'Supervisionar cooperativas de crédito e suas operações',
+            'Autorizar o funcionamento de novas instituições financeiras no Brasil'
+          ],
+          answer: 1,
+          explanation: 'O COAF (hoje vinculado ao BCB) é a Unidade de Inteligência Financeira (UIF) do Brasil. Recebe comunicações de operações suspeitas de diversos setores (bancos, joalherias, imobiliárias, etc.), analisa os dados e repassa informações ao Ministério Público e órgãos de investigação. Não é responsável por autorizar bancos (isso é o BCB) nem por regular juros (isso é o CMN). (Lei 9.613/1998 e LC 179/2021)'
+        },
+        {
+          q: '(Estilo CESGRANRIO) Uma Pessoa Politicamente Exposta (PEP), conforme regulação brasileira, é aquela que:',
+          options: [
+            'Tem patrimônio declarado acima de R$ 5 milhões no Imposto de Renda',
+            'Exerce ou exerceu nos últimos 5 anos cargo público relevante no Brasil ou exterior',
+            'Possui conta em mais de 3 instituições financeiras simultaneamente',
+            'É investigada por órgãos de controle governamental'
+          ],
+          answer: 1,
+          explanation: 'PEP é quem exerce (ou exerceu nos últimos 5 anos) cargo ou função pública de relevância: Presidente da República, ministros, parlamentares, governadores, magistrados, diretores de estatais, etc. Cônjuges e parentes até 2º grau também são tratados como PEP. Para PEPs, as instituições financeiras devem aplicar DILIGÊNCIA AMPLIADA: identificação mais rigorosa, monitoramento intenso e aprovação de níveis superiores. (Resolução BCB 4.753 e Circular 3.978)'
+        },
+        {
+          q: 'Pela LGPD (Lei nº 13.709/2018), as instituições financeiras têm obrigação de:',
+          options: [
+            'Compartilhar dados dos clientes com parceiros comerciais sem necessidade de consentimento',
+            'Destruir todos os dados do cliente imediatamente após o encerramento da conta',
+            'Garantir a segurança dos dados pessoais, informar sobre o uso e responder às solicitações dos titulares',
+            'Isentar-se da lei por já serem reguladas pelo Banco Central'
+          ],
+          answer: 2,
+          explanation: 'A LGPD se aplica às instituições financeiras como qualquer organização que trate dados pessoais. Obrigações: informar ao titular como os dados são usados (transparência), garantir segurança contra vazamentos, atender solicitações de acesso/correção/exclusão dos dados, obter consentimento quando necessário e indicar um DPO (Encarregado de Proteção de Dados). Infrações podem gerar multas de até 2% do faturamento ou R$ 50 milhões por infração.'
+        },
+        {
+          q: '(CESGRANRIO BB) Quais produtos bancários NÃO têm cobertura do Fundo Garantidor de Créditos (FGC)?',
+          options: [
+            'CDB e LCI emitidos por bancos de médio porte',
+            'Contas correntes com saldo até R$ 250.000',
+            'Cotas de fundos de investimento e ações',
+            'Letras de câmbio e letras hipotecárias'
+          ],
+          answer: 2,
+          explanation: 'O FGC COBRE: conta corrente, conta poupança, CDB, LCI, LCA, letras de câmbio, letras hipotecárias, letras imobiliárias, RDB — até R$ 250.000 por CPF/CNPJ por conglomerado. O FGC NÃO COBRE: cotas de fundos de investimento (o risco é do mercado), ações, debêntures, títulos públicos, CRIs, CRAs. Fundos e ações são regulados pela CVM e o risco é do investidor.'
         }
       ]
     }

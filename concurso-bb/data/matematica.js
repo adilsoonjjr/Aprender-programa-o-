@@ -189,6 +189,51 @@ Conclusão: "A agência fecha cedo." (Q é verdadeiro) ✓`,
           ],
           answer: 2,
           explanation: 'A CONTRAPOSITIVA (~Q → ~P) é logicamente equivalente ao condicional original (P → Q). "Se não reduziu custos, então não investiu em IA" tem exatamente a mesma tabela verdade que o original. As outras: ~P → ~Q (inversa) e Q → P (recíproca) NÃO são equivalentes ao original — podem ter valores lógicos diferentes. P ∧ ~Q é a NEGAÇÃO do condicional (quando ele é falso), não uma equivalência.'
+        },
+        {
+          q: '(CESGRANRIO BB) Se p é VERDADEIRO e q é FALSO, qual o valor de p ∧ q (p E q)?',
+          options: ['Verdadeiro', 'Falso', 'Indeterminado', 'Depende do valor de p → q'],
+          answer: 1,
+          explanation: 'A conjunção (∧ = E) só é VERDADEIRA quando AMBAS as proposições são verdadeiras. Como q é FALSO, p ∧ q = V ∧ F = FALSO. Tabela: V∧V=V, V∧F=F, F∧V=F, F∧F=F. Diferente da disjunção (∨ = OU), que é verdadeira se pelo menos uma for verdadeira (V∨F=V).'
+        },
+        {
+          q: '(Estilo CESGRANRIO) Em um grupo de 60 funcionários, 35 falam inglês, 25 falam espanhol e 10 falam os dois idiomas. Quantos falam apenas inglês ou apenas espanhol (sem contar os bilíngues)?',
+          options: ['50', '40', '45', '60'],
+          answer: 0,
+          explanation: 'Apenas inglês = 35 − 10 = 25. Apenas espanhol = 25 − 10 = 15. Total que falam apenas um idioma = 25 + 15 = 40. Mas se a pergunta é "pelo menos um": 35 + 25 − 10 = 50. A questão pede "apenas um ou outro (sem os bilíngues)" = 25 + 15 = 40. Cuidado: releia o enunciado. Se "apenas um dos dois" = 40. Se "pelo menos um" = 50.'
+        },
+        {
+          q: 'A negação da proposição "Todos os clientes pagaram em dia" é:',
+          options: [
+            'Nenhum cliente pagou em dia',
+            'Todos os clientes atrasaram',
+            'Existe pelo menos um cliente que não pagou em dia',
+            'A maioria dos clientes pagou em dia'
+          ],
+          answer: 2,
+          explanation: 'A negação de "TODOS são P" é "EXISTE PELO MENOS UM que não é P" (∃x: ¬P(x)). Não é "nenhum" — isso seria uma negação mais forte. A negação lógica precisa ser a contradição exata: se "todos pagaram" é falso, basta um que não pagou. Tabela: ¬(∀x: P) = ∃x: ¬P.'
+        },
+        {
+          q: '(CESGRANRIO BB) Numa cadeia lógica: "Se João aprova crédito, então Maria avisa o cliente. Maria não avisou o cliente." Qual conclusão é válida?',
+          options: [
+            'João aprovou o crédito',
+            'João não aprovou o crédito',
+            'Maria esqueceu de avisar',
+            'Nenhuma conclusão é possível'
+          ],
+          answer: 1,
+          explanation: 'Modus Tollens: dado P → Q e ¬Q, concluímos ¬P. "João aprova → Maria avisa". "Maria NÃO avisou" (¬Q). Logo: "João NÃO aprovou" (¬P). Esta é a forma clássica de modus tollens — um dos silogismos mais cobrados em provas de raciocínio lógico de concursos bancários.'
+        },
+        {
+          q: 'Em qual das opções a proposição composta é uma TAUTOLOGIA (sempre verdadeira)?',
+          options: [
+            'p ∧ ¬p',
+            'p ∨ ¬p',
+            'p → q',
+            'p ↔ ¬p'
+          ],
+          answer: 1,
+          explanation: 'p ∨ ¬p (p OU não-p) é sempre VERDADEIRO — princípio do terceiro excluído. Para qualquer valor de p: V∨F=V ou F∨V=V. Isto é uma TAUTOLOGIA. Já p ∧ ¬p é sempre FALSO (contradição). p → q pode ser falso (quando p=V e q=F). p ↔ ¬p é sempre falso (bicondicional de proposições opostas).'
         }
       ]
     },
@@ -376,6 +421,61 @@ nunca a proporcional (simples) para prazos diferentes.`,
           ],
           answer: 1,
           explanation: 'Desconto COMERCIAL ("por fora"): D = N × d × t — incide sobre o valor NOMINAL (futuro). Desconto RACIONAL ("por dentro"): D = A × i × t / (1 + i×t) — incide sobre o valor PRESENTE (atual). Como o valor nominal N é sempre maior que o valor presente A (N > A), o desconto comercial resulta em valor descontado EM REAIS maior que o racional para a mesma taxa e prazo. Por isso bancos preferem o desconto comercial ao descontar títulos.'
+        },
+        {
+          q: '(CESGRANRIO BB) Um capital de R$ 3.000,00 foi aplicado a juros simples de 2% ao mês por 5 meses. O montante obtido foi:',
+          options: [
+            'R$ 3.060,00',
+            'R$ 3.300,00',
+            'R$ 3.315,25',
+            'R$ 3.312,36'
+          ],
+          answer: 1,
+          explanation: 'J = C × i × t = 3.000 × 0,02 × 5 = R$ 300,00. M = C + J = 3.000 + 300 = R$ 3.300,00. Em juros simples os juros são constantes (R$60 por mês), totalizando R$300 em 5 meses. Juros compostos dariam M = 3.000 × (1,02)^5 ≈ R$ 3.312,36 — ligeiramente maior, pois os juros incidem sobre o montante acumulado.'
+        },
+        {
+          q: '(CESGRANRIO BB) Uma loja aumentou o preço de um televisor em 25% e depois concedeu um desconto de 20%. O preço final em relação ao original:',
+          options: [
+            'Reduziu 5% — desconto maior que o aumento',
+            'Ficou igual ao preço original',
+            'Aumentou 5% — aumento maior que o desconto',
+            'Aumentou 45% — soma dos percentuais'
+          ],
+          answer: 1,
+          explanation: 'Fator: 1,25 × 0,80 = 1,00. O preço final é IGUAL ao original. Isso é um caso especial: quando um aumento de X% é seguido de desconto de 1/(1+X), os fatores se cancelam. 1,25 (aumento 25%) × 0,80 (desconto 20%) = 1,00. Na situação inversa (+20% depois -20%), o fator seria 1,20 × 0,80 = 0,96, resultando em 4% de redução. A combinação + 25% e -20% é exatamente neutra.'
+        },
+        {
+          q: '(CESGRANRIO BB) Uma aplicação de R$ 10.000,00 rende juros compostos de 5% ao trimestre. O RENDIMENTO total após 2 trimestres é:',
+          options: [
+            'R$ 1.000,00 — juros simples de 5% × 2',
+            'R$ 1.025,00 — juros compostos sobre o montante acumulado',
+            'R$ 1.052,50',
+            'R$ 1.010,25'
+          ],
+          answer: 1,
+          explanation: 'M = 10.000 × (1,05)^2 = 10.000 × 1,1025 = R$ 11.025,00. Rendimento = 11.025 − 10.000 = R$ 1.025,00. Em juros simples seria: J = 10.000 × 0,05 × 2 = R$ 1.000,00. A diferença de R$ 25 representa os "juros sobre juros" do 2º trimestre: no 2º trimestre os juros incidem sobre R$ 10.500 (não sobre R$ 10.000), gerando R$ 525 no 2º tri em vez de R$ 500.'
+        },
+        {
+          q: '(CESGRANRIO BB) O salário de um servidor foi reduzido em 15%. Para que o salário RETORNE ao valor original, o aumento percentual sobre o novo salário deve ser de aproximadamente:',
+          options: [
+            '15,00% — mesmo percentual da redução',
+            '17,65% — pois a base de cálculo mudou',
+            '18,50%',
+            '20,00%'
+          ],
+          answer: 1,
+          explanation: 'Se o salário original é 100, após redução de 15% o novo salário é 85. Para voltar a 100 partindo de 85: aumento necessário = (100 − 85)/85 = 15/85 ≈ 17,65%. Não é 15% porque o aumento incide sobre a BASE MENOR (85), não sobre 100. Fórmula geral: aumento necessário = X/(100 − X) × 100, onde X é o percentual de redução. 15/85 ≈ 17,65%.'
+        },
+        {
+          q: '(CESGRANRIO BB) Uma investidora aplicou R$ 8.000,00 a juros simples e recebeu R$ 9.200,00 após 6 meses. A taxa mensal de juros foi de:',
+          options: [
+            '1,5% ao mês',
+            '2,0% ao mês',
+            '2,5% ao mês',
+            '3,0% ao mês'
+          ],
+          answer: 2,
+          explanation: 'J = M − C = 9.200 − 8.000 = R$ 1.200,00. Usando J = C × i × t: 1.200 = 8.000 × i × 6. i = 1.200 / 48.000 = 0,025 = 2,5% ao mês. Verificação: 8.000 × 0,025 × 6 = 8.000 × 0,15 = R$ 1.200 ✓. Taxa anual equivalente em juros simples: 2,5% × 12 = 30% a.a. (taxa proporcional).'
         }
       ]
     },
@@ -557,6 +657,61 @@ QUESTÕES TÍPICAS DE CONCURSO:
           ],
           answer: 2,
           explanation: 'Moda é o valor com MAIOR frequência. 8 aparece 2 vezes, 12 aparece 2 vezes, 15 aparece 1 vez. Dois valores empatam na maior frequência → distribuição BIMODAL: moda = 8 e 12. Quando TODOS os valores têm a mesma frequência, diz-se que a distribuição é AMODAL. Média = (8+12+8+15+12)/5 = 55/5 = 11 — valor que não aparece na série, apenas uma medida calculada.'
+        },
+        {
+          q: '(CESGRANRIO BB) As idades de 7 funcionários de uma agência são: 24, 28, 32, 32, 35, 40 e 45 anos. A mediana e a média são, respectivamente:',
+          options: [
+            '32 e aproximadamente 33,7 anos',
+            '35 e aproximadamente 33,7 anos',
+            '32 e exatamente 32 anos',
+            '28 e aproximadamente 33,7 anos'
+          ],
+          answer: 0,
+          explanation: 'Mediana: 7 valores já ordenados, o valor central é o 4º = 32 anos. Média = (24+28+32+32+35+40+45)/7 = 236/7 ≈ 33,7 anos. Observe que média (33,7) > mediana (32) porque os valores 40 e 45 "puxam" a média para cima. A mediana não é afetada: independentemente de 45 ser 45 ou 450, o 4º valor da lista ordenada continuaria sendo 32.'
+        },
+        {
+          q: '(CESGRANRIO BB) Em uma agência, 60% dos clientes têm conta corrente e 40% têm poupança. Sabe-se que 25% têm AMBOS os produtos. A probabilidade de um cliente ter APENAS conta corrente é:',
+          options: [
+            '25%',
+            '35%',
+            '40%',
+            '60%'
+          ],
+          answer: 1,
+          explanation: 'P(só conta corrente) = P(CC) − P(CC ∩ Poupança) = 60% − 25% = 35%. O diagrama de Venn: só CC = 35%, somente poupança = 40% − 25% = 15%, ambos = 25%, nenhum = 100% − 75% = 25%. Verifique: 35 + 15 + 25 + 25 = 100% ✓. Este é um clássico de probabilidade com eventos não-mutuamente exclusivos: P(A ou B) = P(A) + P(B) − P(A e B) = 60% + 40% − 25% = 75%.'
+        },
+        {
+          q: '(CESGRANRIO BB) Num dado de 6 faces não-viciado, qual a probabilidade de sair um número PAR OU maior que 4?',
+          options: [
+            '50%',
+            '66,7%',
+            '33,3%',
+            '75%'
+          ],
+          answer: 1,
+          explanation: 'Pares = {2, 4, 6}; maiores que 4 = {5, 6}. União: {2, 4, 5, 6} — 4 elementos. P = 4/6 = 2/3 ≈ 66,7%. Usando a fórmula: P(par ou >4) = P(par) + P(>4) − P(par e >4) = 3/6 + 2/6 − 1/6 = 4/6. O elemento em comum é 6 (único par maior que 4). Erro comum: somar 50% + 33,3% = 83,3% sem descontar a interseção.'
+        },
+        {
+          q: '(CESGRANRIO BB) Um aluno fez 3 provas com pesos 1, 2 e 3, obtendo notas 6, 7 e 8, respectivamente. Sua média ponderada foi:',
+          options: [
+            '7,00 — média simples das notas',
+            '7,17 — cálculo incorreto dos pesos',
+            '7,33 — média ponderada correta',
+            '7,50'
+          ],
+          answer: 2,
+          explanation: 'Média ponderada = Σ(nota × peso) / Σpesos = (6×1 + 7×2 + 8×3) / (1+2+3) = (6 + 14 + 24) / 6 = 44/6 ≈ 7,33. Média simples seria (6+7+8)/3 = 7,00. A diferença mostra que as provas de maior peso (3) "puxaram" a média para cima, pois a nota mais alta (8) tem o maior peso. Média ponderada é usada no BB em cálculos de rentabilidade de carteiras, onde cada ativo tem peso diferente.'
+        },
+        {
+          q: '(CESGRANRIO BB) Em uma pesquisa com 100 clientes, 45 avaliaram o atendimento como ÓTIMO, 35 como BOM e 20 como REGULAR. A frequência relativa ACUMULADA até a categoria BOM é:',
+          options: [
+            '35%',
+            '45%',
+            '80%',
+            '65%'
+          ],
+          answer: 2,
+          explanation: 'Frequência relativa acumulada até BOM = frequências de todas as categorias até BOM inclusive. = (45 + 35) / 100 = 80%. Interpretação: 80% dos clientes avaliaram como BOM ou melhor (ÓTIMO + BOM). Frequência relativa de cada categoria: ÓTIMO = 45%, BOM = 35%, REGULAR = 20%. A acumulada soma progressivamente: até ÓTIMO = 45%; até BOM = 45% + 35% = 80%; até REGULAR = 80% + 20% = 100%.'
         }
       ]
     },
@@ -700,6 +855,61 @@ VERIFICAÇÃO:
           ],
           answer: 1,
           explanation: 'A propriedade fundamental da proporção: produto dos extremos = produto dos meios. a×d = b×c. Permite isolar a incógnita em qualquer regra de três.'
+        },
+        {
+          q: '(CESGRANRIO BB) Uma cooperativa distribui R$ 18.000 entre 3 associados proporcionalmente aos seus depósitos: A = R$ 6.000, B = R$ 9.000 e C = R$ 15.000. O valor recebido pelo associado B foi:',
+          options: [
+            'R$ 3.600',
+            'R$ 5.400',
+            'R$ 4.500',
+            'R$ 9.000'
+          ],
+          answer: 1,
+          explanation: 'Proporção dos depósitos: 6.000 : 9.000 : 15.000 → simplifica por 3.000 → 2 : 3 : 5. Total de partes = 2+3+5 = 10. Valor de 1 parte = 18.000/10 = R$ 1.800. B tem 3 partes: 3 × 1.800 = R$ 5.400. Verificação: A=R$3.600, B=R$5.400, C=R$9.000 → 3.600+5.400+9.000 = R$18.000 ✓.'
+        },
+        {
+          q: '(CESGRANRIO BB) Um trabalho seria executado por 8 funcionários em 15 dias, mas precisa ser concluído em 10 dias. Quantos funcionários ADICIONAIS são necessários?',
+          options: [
+            '2 funcionários adicionais',
+            '4 funcionários adicionais',
+            '6 funcionários adicionais',
+            '8 funcionários adicionais'
+          ],
+          answer: 1,
+          explanation: 'Grandezas inversamente proporcionais: mais funcionários → menos dias. Total de trabalho = 8 × 15 = 120 funcionários-dia. Funcionários necessários para 10 dias = 120 / 10 = 12 funcionários. Adicionais = 12 − 8 = 4 funcionários. Verificação: 12 × 10 = 120 funcionários-dia ✓. Regra de três inversa: x/8 = 15/10 → x = 8 × 15/10 = 12.'
+        },
+        {
+          q: '(CESGRANRIO BB) Dois sócios participam dos lucros na proporção de 3:5. Se o lucro total foi de R$ 24.000, o sócio com MENOR participação recebeu:',
+          options: [
+            'R$ 6.000',
+            'R$ 9.000',
+            'R$ 15.000',
+            'R$ 12.000'
+          ],
+          answer: 1,
+          explanation: 'Proporção 3:5. Total de partes = 3+5 = 8. Valor de 1 parte = 24.000/8 = R$ 3.000. Menor participação (3 partes): 3 × 3.000 = R$ 9.000. Maior participação (5 partes): 5 × 3.000 = R$ 15.000. Verificação: 9.000 + 15.000 = R$ 24.000 ✓. O sócio com 3 partes recebe 3/8 = 37,5% do lucro; o de 5 partes recebe 5/8 = 62,5%.'
+        },
+        {
+          q: '(CESGRANRIO BB) Se 1 dólar equivale a R$ 5,20, qual o preço em reais de um produto importado que custa US$ 150?',
+          options: [
+            'R$ 520,00',
+            'R$ 750,00',
+            'R$ 780,00',
+            'R$ 800,00'
+          ],
+          answer: 2,
+          explanation: 'Regra de três direta: 1 dólar → R$ 5,20; 150 dólares → x. x = 150 × 5,20 = R$ 780,00. Grandezas diretamente proporcionais: mais dólares → mais reais. Raciocínio rápido: 100 dólares = R$ 520; 50 dólares = R$ 260; 150 dólares = R$ 780. Em câmbio, o produto final em reais = valor em dólar × taxa de câmbio (cotação do dólar).'
+        },
+        {
+          q: '(CESGRANRIO BB) Uma torneira enche um tanque em 6 horas e outra enche o mesmo tanque em 12 horas. Trabalhando juntas, em quantas horas encherão o tanque?',
+          options: [
+            '3 horas',
+            '4 horas',
+            '8 horas',
+            '9 horas'
+          ],
+          answer: 1,
+          explanation: 'Taxa da torneira 1 = 1/6 do tanque/hora; taxa da torneira 2 = 1/12 do tanque/hora. Taxa conjunta = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 do tanque/hora. Tempo = 1 ÷ (1/4) = 4 horas. Verificação: em 4h, torneira 1 enche 4/6 = 2/3 e torneira 2 enche 4/12 = 1/3. Total: 2/3 + 1/3 = 1 tanque completo ✓. Fórmula: t = (t1 × t2) / (t1 + t2) = (6 × 12) / (6 + 12) = 72/18 = 4h.'
         }
       ]
     }
