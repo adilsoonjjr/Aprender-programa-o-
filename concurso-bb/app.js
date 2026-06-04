@@ -474,13 +474,14 @@ function showLesson(subjectId, topicId) {
   const qCount = questions.length;
 
   const examplesHTML = examples.map((ex, i) => `
-    <div class="example-block">
-      <div class="example-header">
-        <span class="example-header-title">${escapeHtml(ex.title)}</span>
-        <button class="btn-copy" onclick="copyCode(this)" aria-label="Copiar código">Copiar</button>
+    <div class="example-card">
+      <div class="ex-badge">📋 Exemplo ${i + 1}</div>
+      <div class="ex-title">${escapeHtml(ex.title)}</div>
+      <div class="ex-body"><pre class="ex-pre">${escapeHtml(ex.code)}</pre></div>
+      <div class="ex-explanation">
+        <span class="ex-exp-icon">💡</span>
+        <div class="ex-exp-text">${ex.explanation}</div>
       </div>
-      <div class="code-box"><pre>${escapeHtml(ex.code)}</pre></div>
-      <div class="explanation-box">${ex.explanation}</div>
     </div>`).join('');
 
   const videosHTML = videos.length > 0 ? `

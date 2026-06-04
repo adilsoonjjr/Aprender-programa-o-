@@ -1,4 +1,4 @@
-const CACHE = 'bbconcurso-v4';
+const CACHE = 'bbconcurso-v5';
 const BASE = self.registration.scope;
 const ASSETS = [
   BASE,

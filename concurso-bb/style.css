@@ -719,8 +719,8 @@ h1, h2, h3, h4 { line-height: 1.2; }
 
 /* Section label */
 .lesson-section-label {
-  font-size: 0.65rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent2);
@@ -741,37 +741,67 @@ h1, h2, h3, h4 { line-height: 1.2; }
 /* Theory block */
 .lesson-theory {
   color: var(--text1);
-  font-size: 0.92rem;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.8;
   margin-bottom: 24px;
 }
 .lesson-theory h3 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   color: var(--accent);
-  margin: 20px 0 10px;
+  margin: 22px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lesson-theory h3::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 .lesson-theory ul, .lesson-theory ol {
   padding-left: 20px;
   margin: 8px 0 16px;
 }
 .lesson-theory li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.7;
 }
-.lesson-theory strong { color: var(--text1); }
+.lesson-theory strong { color: var(--text1); font-weight: 700; }
 .lesson-theory em { color: var(--text2); font-style: normal; }
-.lesson-theory p { margin-bottom: 12px; }
+.lesson-theory p { margin-bottom: 14px; }
+.lesson-theory pre {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 12px 0;
+}
 
-/* Example block */
+/* Example block — LEGACY (kept for compatibility) */
 .example-block {
-  background: var(--bg2);
+  display: none;
+}
+
+/* ── Example Card (new didactic style) ── */
+.example-card {
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
   margin-bottom: 16px;
 }
 .example-header {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
@@ -1294,6 +1324,61 @@ h1, h2, h3, h4 { line-height: 1.2; }
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+/* ============================================================
+   EXAMPLE CARD — didactic, no monospace, no "copy code" button
+   ============================================================ */
+.example-card {
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.ex-badge {
+  padding: 12px 16px 4px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent);
+}
+.ex-title {
+  padding: 4px 16px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text1);
+  line-height: 1.35;
+}
+.ex-body {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  padding: 14px 16px;
+}
+/* KEY CHANGE: Inter font instead of monospace */
+.ex-pre {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--text1);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+.ex-explanation {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(0, 102, 204, 0.12);
+  border-top: 1px solid rgba(0, 102, 204, 0.2);
+}
+.ex-exp-icon { font-size: 16px; flex-shrink: 0; line-height: 1.6; }
+.ex-exp-text {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.ex-exp-text strong { color: var(--text1); }
 
 /* ============================================================
    ONBOARDING SCREEN
