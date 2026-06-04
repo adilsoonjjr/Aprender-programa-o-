@@ -386,6 +386,70 @@ window.VIDEOS_DATA = {
     }
   ],
 
+  // ── VENDAS E NEGOCIAÇÃO ─────────────────────────────────────────
+  'ven-tecnicas': [
+    {
+      title: 'Técnicas de Vendas Bancárias — Ciclo Completo',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=técnicas+vendas+bancárias+ciclo+vendas+concurso+banco+brasil+escriturário',
+      desc: 'Prospecção, abordagem, levantamento de necessidades, fechamento e pós-venda'
+    },
+    {
+      title: 'Suitability e Perfil do Investidor — Concurso BB',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=suitability+perfil+investidor+conservador+moderado+arrojado+concurso+banco+brasil',
+      desc: 'Como adequar o produto ao perfil do cliente — obrigação regulatória'
+    },
+    {
+      title: 'Venda Consultiva vs Venda Casada — Ética no BB',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=venda+consultiva+venda+casada+ética+banco+brasil+concurso+CDC',
+      desc: 'Diferença entre cross-selling ético e práticas proibidas pelo CDC'
+    }
+  ],
+
+  'ven-negociacao': [
+    {
+      title: 'Técnicas de Negociação — BATNA, ZOPA e Ganha-Ganha',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=técnicas+negociação+BATNA+ZOPA+ganha+ganha+concurso+banco+brasil',
+      desc: 'Estilos de negociação, BATNA, ZOPA e Negociação Harvard aplicados ao BB'
+    },
+    {
+      title: 'Negociação Harvard — 4 Princípios — Concurso Bancário',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=negociação+harvard+princípios+concurso+bancário+banco+brasil',
+      desc: 'Separar pessoas do problema, focar em interesses, opções de ganho mútuo'
+    },
+    {
+      title: 'Renegociação de Dívidas — Atendimento ao Inadimplente',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=renegociação+dívidas+inadimplente+banco+brasil+concurso+atendimento',
+      desc: 'Como conduzir renegociações com empatia e chegar ao acordo'
+    }
+  ],
+
+  'ven-relacionamento': [
+    {
+      title: 'CRM e Relacionamento com Cliente — Concurso BB',
+      channel: 'Estratégia Concursos',
+      url: 'https://www.youtube.com/results?search_query=CRM+relacionamento+cliente+bancário+fidelização+concurso+banco+brasil',
+      desc: 'Customer Relationship Management, jornada do cliente e fidelização'
+    },
+    {
+      title: 'NPS, CSAT e Indicadores de Satisfação — Concurso',
+      channel: 'Gran Cursos Online',
+      url: 'https://www.youtube.com/results?search_query=NPS+CSAT+satisfação+cliente+concurso+banco+brasil+indicadores',
+      desc: 'Net Promoter Score — promotores, neutros, detratores e como calcular'
+    },
+    {
+      title: 'Cross-selling e Up-selling Ético — Banco do Brasil',
+      channel: 'Direção Concursos',
+      url: 'https://www.youtube.com/results?search_query=cross+selling+up+selling+ético+banco+brasil+concurso+escriturário',
+      desc: 'Venda cruzada correta, sem pressão e adequada ao perfil do cliente'
+    }
+  ],
+
   // ── LEGISLAÇÃO ─────────────────────────────────────────────────
   'leg-etica': [
     {
