@@ -15,6 +15,7 @@
   --text3: #5a739a;
   --accent: #FFD700;
   --accent2: #0066CC;
+  --surface: #1e2d4a;
   --accent-dim: rgba(255, 215, 0, 0.15);
   --accent2-dim: rgba(0, 102, 204, 0.2);
   --green: #22c55e;
@@ -1292,4 +1293,362 @@ h1, h2, h3, h4 { line-height: 1.2; }
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
+}
+
+/* ============================================================
+   ONBOARDING SCREEN
+   ============================================================ */
+#screen-onboarding {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background: linear-gradient(160deg, #0a0e1a 0%, #0d1a33 100%);
+  justify-content: center;
+  align-items: center;
+}
+.onboarding-body {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 28px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
+.ob-logo {
+  font-size: 56px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 20px rgba(255,215,0,0.4));
+}
+.ob-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.ob-sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.5;
+  margin-bottom: 36px;
+}
+.ob-steps {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.ob-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface, #1e2d4a);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+}
+.ob-step-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.ob-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ob-step-info strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text1);
+}
+.ob-step-info span {
+  font-size: 12px;
+  color: var(--text2);
+}
+.btn-ob-start {
+  width: 100%;
+  padding: 18px;
+  background: var(--accent);
+  color: #0a0e1a;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+}
+.btn-ob-start:active { transform: scale(0.97); }
+.ob-offline {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+/* ============================================================
+   HOME — LEVEL ROW (replaces player card)
+   ============================================================ */
+.level-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  margin: 0 16px 14px;
+  background: var(--surface, #1e2d4a);
+  border-radius: 12px;
+}
+.level-row-icon { font-size: 17px; flex-shrink: 0; }
+.level-row-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.level-row-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.level-row-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.level-row-xp {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HOME — NEXT LESSON CARD
+   ============================================================ */
+.next-lesson-card {
+  margin: 0 16px 20px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, var(--accent2) 0%, #1a3faa 100%);
+  border-radius: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s;
+}
+.next-lesson-card:active { transform: scale(0.98); }
+.next-lesson-card::after {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.next-lesson-card.done-card {
+  background: linear-gradient(135deg, #1a4a1a 0%, #0f2e0f 100%);
+  cursor: default;
+}
+.nlc-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+}
+.nlc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.nlc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nlc-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+.nlc-cta {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   HOME — SUBJECT ROW (replaces subject-card grid)
+   ============================================================ */
+.subject-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: var(--surface, #1e2d4a);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.subject-row:active { transform: scale(0.98); }
+.subject-row.all-done .sr-name { color: var(--text2); }
+.sr-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.sr-body { flex: 1; min-width: 0; }
+.sr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+.sr-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text1);
+}
+.sr-count {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 500;
+}
+.sr-bar {
+  height: 4px;
+  background: var(--bg2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sr-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.sr-arrow {
+  font-size: 22px;
+  color: var(--text3);
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ============================================================
+   TOPICS — PROGRESS HEADER
+   ============================================================ */
+.tprog-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 7px;
+  padding-top: 4px;
+}
+.tprog-track {
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.tprog-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s;
+}
+
+/* ============================================================
+   TOPICS — NUMBERED LIST ITEMS
+   ============================================================ */
+.topic-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--bg2);
+  color: var(--text2);
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+.topic-num.done {
+  background: var(--green-dim);
+  color: var(--green);
+  border-color: rgba(34,197,94,0.3);
+}
+.tbadge {
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--bg2);
+  padding: 2px 7px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.tbadge.accent {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+.topic-sub {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+.topic-end { flex-shrink: 0; }
+.t-arrow {
+  font-size: 22px;
+  color: var(--text3);
+  font-weight: 300;
+  line-height: 1;
+}
+.t-done-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-dim);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ============================================================
+   RESULTS — NEXT LESSON BUTTON
+   ============================================================ */
+.btn-next-lesson {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--accent2);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  transition: transform 0.15s;
+  line-height: 1.3;
+}
+.btn-next-lesson:active { transform: scale(0.97); }
+.btn-next-lesson.done-variant {
+  background: var(--green);
+  color: #fff;
 }

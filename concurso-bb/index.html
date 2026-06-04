@@ -33,6 +33,44 @@
     </div>
   </div>
 
+  <!-- ===== SCREEN: ONBOARDING ===== -->
+  <section class="screen" id="screen-onboarding" role="region" aria-label="Boas-vindas">
+    <div class="onboarding-body">
+      <div class="ob-logo">🏦</div>
+      <h1 class="ob-title">BB Concurso</h1>
+      <p class="ob-sub">O curso completo para passar no Banco do Brasil — mesmo começando do zero</p>
+
+      <div class="ob-steps">
+        <div class="ob-step">
+          <div class="ob-step-icon">📖</div>
+          <div class="ob-step-info">
+            <strong>Estude a teoria</strong>
+            <span>Conteúdo completo em linguagem simples</span>
+          </div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-icon">✏️</div>
+          <div class="ob-step-info">
+            <strong>Pratique com questões reais</strong>
+            <span>Questões no estilo CESGRANRIO com explicações</span>
+          </div>
+        </div>
+        <div class="ob-step">
+          <div class="ob-step-icon">🏆</div>
+          <div class="ob-step-info">
+            <strong>Acompanhe seu progresso</strong>
+            <span>Saiba exatamente onde você está na trilha</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-ob-start" onclick="finishOnboarding()">
+        Começar a estudar →
+      </button>
+      <p class="ob-offline">📵 Funciona 100% offline</p>
+    </div>
+  </section>
+
   <!-- ===== SCREEN: HOME ===== -->
   <main class="screen active" id="screen-home" role="main">
     <div class="home-hero">
@@ -41,63 +79,8 @@
       <p class="hero-sub">Sua preparação para o Banco do Brasil</p>
     </div>
 
-    <div class="home-content">
-      <!-- Player card -->
-      <div class="player-card" id="playerCard" aria-label="Seu progresso">
-        <div class="player-avatar" id="playerAvatar" aria-hidden="true">📚</div>
-        <div class="player-info">
-          <div class="player-level" id="playerLevel">Candidato</div>
-          <div class="player-stats">
-            <div class="stat-item">
-              <div class="stat-value" id="statXP">0</div>
-              <div class="stat-label">XP</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-value" id="statLevel">1</div>
-              <div class="stat-label">Nível</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-value" id="statStreak">0</div>
-              <div class="stat-label">🔥 Dias</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-value" id="statTopics">0</div>
-              <div class="stat-label">Tópicos</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- XP Progress bar -->
-      <div class="xp-progress-wrap" aria-label="Progresso de XP para o próximo nível">
-        <div class="xp-progress-labels">
-          <span id="xpProgressLabel">Progresso para o próximo nível</span>
-          <span id="xpProgressValue">0 / 150 XP</span>
-        </div>
-        <div class="xp-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <div class="xp-progress-bar" id="xpProgressBar"></div>
-        </div>
-      </div>
-
-      <!-- Subject grid -->
-      <section class="subjects-section" aria-label="Matérias">
-        <h2 class="section-title">Matérias</h2>
-        <div class="subject-grid" id="subjectGrid" role="list">
-          <!-- Rendered by JS -->
-        </div>
-      </section>
-
-      <!-- Footer tip -->
-      <footer class="home-footer">
-        <div class="footer-tip">
-          <span class="footer-tip-icon">📵</span>
-          <span>Funciona 100% offline após o primeiro acesso</span>
-        </div>
-        <div class="footer-copy">BB Concurso © 2025</div>
-      </footer>
+    <div class="home-content" id="homeContent">
+      <!-- Preenchido pelo JS -->
     </div>
   </main>
 

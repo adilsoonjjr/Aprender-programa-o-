@@ -269,35 +269,96 @@ function showScreen(id) {
   }
 }
 
+// ── NEXT TOPIC HELPER ────────────────────────────────────
+
+function getNextTopic() {
+  for (const subject of getAllSubjects()) {
+    for (const topic of subject.topics) {
+      if (!isTopicDone(subject.id, topic.id)) {
+        return { subject, topic };
+      }
+    }
+  }
+  return null;
+}
+
+// ── ONBOARDING ───────────────────────────────────────────
+
+function finishOnboarding() {
+  localStorage.setItem('bbconcurso-visited', '1');
+  renderHome();
+}
+
 // ── HOME SCREEN ──────────────────────────────────────────
 
 function renderHome() {
   const levelInfo = getLevelInfo(STATE.xp);
-  const levelNum = getLevelNumber(STATE.xp);
-
-  setEl('playerAvatar', levelInfo.icon);
-  setEl('playerLevel', levelInfo.name);
-  setEl('statXP', STATE.xp.toLocaleString('pt-BR'));
-  setEl('statLevel', levelNum);
-  setEl('statStreak', STATE.streak);
-  setEl('statTopics', countDoneTopics());
+  const nextItem = getNextTopic();
+  const totalDone = countDoneTopics();
 
   const prevMin = getPrevLevelMin(STATE.xp);
   const nextMin = getNextLevelMin(STATE.xp);
-  const progressXP = STATE.xp - prevMin;
-  const rangeXP = nextMin - prevMin;
-  const pct = rangeXP > 0 ? Math.min(100, Math.round((progressXP / rangeXP) * 100)) : 100;
+  const pct = (nextMin > prevMin)
+    ? Math.min(100, Math.round(((STATE.xp - prevMin) / (nextMin - prevMin)) * 100))
+    : 100;
 
-  const bar = getEl('xpProgressBar');
-  if (bar) {
-    bar.style.width = '0%';
-    setTimeout(() => { bar.style.width = pct + '%'; }, 80);
-  }
-  setEl('xpProgressValue', `${STATE.xp} / ${nextMin} XP`);
-  const progressEl = document.querySelector('.xp-progress');
-  if (progressEl) progressEl.setAttribute('aria-valuenow', pct);
+  const nextCardHTML = nextItem ? `
+    <div class="next-lesson-card"
+         tabindex="0" role="button"
+         onclick="showLesson('${escapeHtml(nextItem.subject.id)}','${escapeHtml(nextItem.topic.id)}')"
+         onkeydown="if(event.key==='Enter'){showLesson('${escapeHtml(nextItem.subject.id)}','${escapeHtml(nextItem.topic.id)}')}">
+      <div class="nlc-tag">${totalDone === 0 ? '🚀 Por onde começar' : '📍 Continue de onde parou'}</div>
+      <div class="nlc-title">${escapeHtml(nextItem.topic.title)}</div>
+      <div class="nlc-row">
+        <span class="nlc-sub">${escapeHtml(nextItem.subject.name)} · ~10 min · ${nextItem.topic.xp || 30} XP</span>
+        <span class="nlc-cta">Estudar →</span>
+      </div>
+    </div>
+  ` : `
+    <div class="next-lesson-card done-card">
+      <div class="nlc-tag">🏆 Missão cumprida!</div>
+      <div class="nlc-title">Você completou toda a trilha de estudos!</div>
+      <div class="nlc-row"><span class="nlc-sub">${STATE.xp.toLocaleString('pt-BR')} XP conquistados</span></div>
+    </div>
+  `;
+
+  const homeContent = getEl('homeContent');
+  if (!homeContent) { showScreen('home'); return; }
+
+  homeContent.innerHTML = `
+    <div class="level-row">
+      <span class="level-row-icon">${levelInfo.icon}</span>
+      <span class="level-row-name">${escapeHtml(levelInfo.name)}</span>
+      <div class="level-row-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de nível">
+        <div class="level-row-fill" style="width:${pct}%"></div>
+      </div>
+      <span class="level-row-xp">⚡ ${STATE.xp.toLocaleString('pt-BR')}</span>
+    </div>
+
+    ${nextCardHTML}
+
+    <section class="subjects-section" aria-label="Trilha de Estudos">
+      <h2 class="section-title">Trilha de Estudos</h2>
+      <div id="subjectGrid" role="list"></div>
+    </section>
+
+    <footer class="home-footer">
+      <div class="footer-tip">
+        <span class="footer-tip-icon">📵</span>
+        <span>Funciona 100% offline após o primeiro acesso</span>
+      </div>
+      <div class="footer-copy">BB Concurso © 2025</div>
+    </footer>
+  `;
 
   renderSubjectGrid();
+
+  // animate level bar after render
+  setTimeout(() => {
+    const fill = homeContent.querySelector('.level-row-fill');
+    if (fill) { fill.style.width = '0'; requestAnimationFrame(() => { fill.style.width = pct + '%'; }); }
+  }, 80);
+
   showScreen('home');
 }
 
@@ -310,27 +371,23 @@ function renderSubjectGrid() {
     const total = subject.topics.length;
     const done = subject.topics.filter(t => isTopicDone(subject.id, t.id)).length;
     const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-    const circ = 75.4;
-    const offset = circ - (circ * pct / 100);
+    const allDone = done === total && total > 0;
 
     return `
-      <div class="subject-card"
-           role="listitem"
-           tabindex="0"
-           style="--subject-color: ${escapeHtml(subject.color)}"
+      <div class="subject-row${allDone ? ' all-done' : ''}"
+           role="listitem" tabindex="0"
            onclick="showTopics('${escapeHtml(subject.id)}')"
            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showTopics('${escapeHtml(subject.id)}')}"
            aria-label="${escapeHtml(subject.name)}, ${done} de ${total} tópicos concluídos">
-        <div class="subject-icon">${subject.icon}</div>
-        <div class="subject-name">${escapeHtml(subject.name)}</div>
-        <div class="subject-meta">
-          <div class="subject-count">${done}/${total} tópicos</div>
-          <svg class="subject-progress-ring" viewBox="0 0 28 28" aria-hidden="true">
-            <circle class="ring-bg" cx="14" cy="14" r="12"/>
-            <circle class="ring-fill" cx="14" cy="14" r="12"
-              style="stroke:${escapeHtml(subject.color)};stroke-dashoffset:${offset}"/>
-          </svg>
+        <div class="sr-icon" style="background:${escapeHtml(subject.color)}22">${subject.icon}</div>
+        <div class="sr-body">
+          <div class="sr-top">
+            <span class="sr-name">${escapeHtml(subject.name)}</span>
+            <span class="sr-count">${done}/${total}</span>
+          </div>
+          <div class="sr-bar"><div class="sr-fill" style="width:${pct}%;background:${escapeHtml(subject.color)}"></div></div>
         </div>
+        <div class="sr-arrow">${allDone ? '✅' : '›'}</div>
       </div>`;
   }).join('');
 }
@@ -347,31 +404,46 @@ function showTopics(subjectId) {
   setEl('headerXP', STATE.xp);
   setEl('topicsHeroIcon', subject.icon);
   setEl('topicsHeroName', escapeHtml(subject.name));
-  setEl('topicsHeroDesc', escapeHtml(subject.description || ''));
+
+  const total = subject.topics.length;
+  const done = subject.topics.filter(t => isTopicDone(subjectId, t.id)).length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  setEl('topicsHeroDesc', `
+    <div class="tprog-info">
+      <span>${done} de ${total} aulas concluídas</span>
+      <span>${pct}%</span>
+    </div>
+    <div class="tprog-track">
+      <div class="tprog-fill" style="width:${pct}%;background:rgba(255,255,255,0.9)"></div>
+    </div>
+  `);
 
   const list = getEl('topicsList');
   if (list) {
-    list.innerHTML = subject.topics.map(topic => {
-      const done = isTopicDone(subjectId, topic.id);
+    list.innerHTML = subject.topics.map((topic, idx) => {
+      const isDone = isTopicDone(subjectId, topic.id);
       const qCount = getTopicQuestions(topic).length;
 
       return `
-        <div class="topic-item ${done ? 'done' : ''}"
-             role="listitem"
-             tabindex="0"
-             onclick="showLesson('${escapeHtml(subjectId)}', '${escapeHtml(topic.id)}')"
+        <div class="topic-item${isDone ? ' done' : ''}"
+             role="listitem" tabindex="0"
+             onclick="showLesson('${escapeHtml(subjectId)}','${escapeHtml(topic.id)}')"
              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showLesson('${escapeHtml(subjectId)}','${escapeHtml(topic.id)}')}"
-             aria-label="${escapeHtml(topic.title)}${done ? ', concluído' : ''}">
-          <div class="topic-icon-wrap" aria-hidden="true">
-            ${done ? '✅' : '📖'}
-          </div>
+             aria-label="Aula ${idx+1}: ${escapeHtml(topic.title)}${isDone ? ', concluída' : ''}">
+          <div class="topic-num${isDone ? ' done' : ''}">${isDone ? '✓' : idx + 1}</div>
           <div class="topic-info">
             <div class="topic-title">${escapeHtml(topic.title)}</div>
-            <div class="topic-sub">${qCount} quest${qCount === 1 ? 'ão' : 'ões'} • +${topic.xp || 30} XP</div>
+            <div class="topic-sub">
+              <span class="tbadge">⏱ ~10 min</span>
+              <span class="tbadge accent">⚡ ${topic.xp || 30} XP</span>
+              <span class="tbadge">${qCount} questões</span>
+            </div>
           </div>
-          <div class="topic-right">
-            <div class="topic-xp-badge">⚡ ${topic.xp || 30} XP</div>
-            ${done ? '<div class="topic-done-badge">✓ Feito</div>' : ''}
+          <div class="topic-end">
+            ${isDone
+              ? '<span class="t-done-chip">Concluído</span>'
+              : '<span class="t-arrow">›</span>'}
           </div>
         </div>`;
     }).join('');
@@ -705,6 +777,26 @@ function showResults() {
   const bar = getEl('quizProgressBar');
   if (bar) bar.style.width = '100%';
 
+  // Inject next lesson button
+  const nextItem = getNextTopic();
+  const actionsEl = document.querySelector('.results-actions');
+  if (actionsEl) {
+    const nextBtn = nextItem
+      ? `<button class="btn-next-lesson"
+                 onclick="showLesson('${escapeHtml(nextItem.subject.id)}','${escapeHtml(nextItem.topic.id)}')"
+                 aria-label="Ir para a próxima aula">
+           📖 Próxima aula: ${escapeHtml(nextItem.topic.title)} →
+         </button>`
+      : `<button class="btn-next-lesson done-variant" onclick="showScreen('home')">
+           🏆 Ver toda a trilha
+         </button>`;
+    actionsEl.innerHTML = `
+      ${nextBtn}
+      <button class="btn-secondary" onclick="retryQuiz()" aria-label="Tentar novamente">🔄 Tentar novamente</button>
+      <button class="btn-outline" onclick="showScreen('home')" aria-label="Ir para o início">🏠 Início</button>
+    `;
+  }
+
   const newLevel = getLevelNumber(STATE.xp);
   if (newLevel > prevLevel) {
     setTimeout(() => {
@@ -777,14 +869,21 @@ window.addEventListener('offline', updateOnlineStatus);
 document.addEventListener('DOMContentLoaded', () => {
   loadState();
   updateOnlineStatus();
-  renderHome();
+
+  const firstVisit = !localStorage.getItem('bbconcurso-visited');
+  if (firstVisit) {
+    showScreen('onboarding');
+  } else {
+    renderHome();
+  }
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       const active = document.querySelector('.screen.active');
       if (!active) return;
       const id = active.id;
-      if (id === 'screen-topics') showScreen('home');
+      if (id === 'screen-onboarding') finishOnboarding();
+      else if (id === 'screen-topics') showScreen('home');
       else if (id === 'screen-lesson') goBackFromLesson();
       else if (id === 'screen-quiz') confirmLeaveQuiz();
       else if (id === 'screen-results') backToTopics();
